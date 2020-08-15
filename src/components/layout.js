@@ -17,7 +17,7 @@ const Main = styled.div`
 const Layout = ({ children }) => {
   const scrollContainerRef = useRef(null)
   const isMobile = useMediaQuery("md")
-  console.log(isMobile)
+
   useSmoothScroll(scrollContainerRef, isMobile)
 
   return (

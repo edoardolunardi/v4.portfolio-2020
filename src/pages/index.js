@@ -52,7 +52,7 @@ const IndexPage = () => {
       {projects.map((project, i) => (
         <ProjectPreview
           title={project}
-          left={i % 2 === 0}
+          left={i % 2 !== 0}
           key={`project-${i}`}
         />
       ))}
