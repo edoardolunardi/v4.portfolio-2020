@@ -6,22 +6,22 @@ import useMediaQuery from "../hooks/useMediaQuery"
 import Scroll from "../components/scroll"
 
 const Main = styled.div`
-  position: fixed;
   padding: 1vw;
+  position: fixed;
   box-sizing: border-box;
   top: 0;
   left: 0;
   width: 100%;
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   const scrollContainerRef = useRef(null)
   const isMobile = useMediaQuery("md")
 
   return (
     <>
       <GlobalStyles />
-      <Scroll container={scrollContainerRef} />
+      <Scroll container={scrollContainerRef} location={location} />
       <Main ref={scrollContainerRef}>{children}</Main>
     </>
   )
