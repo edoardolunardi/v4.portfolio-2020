@@ -1,4 +1,4 @@
-import { createGlobalStyle, styled } from "styled-components"
+import * as styled from "styled-components"
 import { normalize } from "styled-normalize"
 import FG from "../fonts/FG-medium.woff"
 
@@ -19,7 +19,7 @@ export default styled.createGlobalStyle`
   }
 
   body {
-    padding: 2rem;
+    padding: 1vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -31,5 +31,11 @@ export default styled.createGlobalStyle`
   h5,
   h6 {
     margin: 0;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+
+  .gatsby-image-wrapper {
+    height: 100%;
   }
 `
