@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import PropTypes from "prop-types"
+import { theme } from "../styles/theme"
 
 import Diego from "./diego.image"
 import Emerge from "./emerge.image"
@@ -25,7 +26,10 @@ const Title = styled.h2`
   bottom: 0;
   margin-bottom: -2.5vw;
   margin-right: -0.3vw;
-  color: #ffffff;
+  color: ${theme.colors.white};
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 500ms ease-in-out, opacity ease-in-out;
   ${props =>
     props.left
       ? css`
@@ -35,6 +39,11 @@ const Title = styled.h2`
       : css`
           right: 0;
         `}
+
+  &.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
 `
 
 const ProjectPreview = ({ title, left }) => {

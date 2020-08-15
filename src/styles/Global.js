@@ -2,6 +2,7 @@ import * as styled from "styled-components"
 import { normalize } from "styled-normalize"
 import FG from "../fonts/FG-medium.woff"
 import locomotive from "./locomotive.css"
+import { theme } from "./theme"
 
 export default styled.createGlobalStyle`
   @font-face {
@@ -28,6 +29,7 @@ export default styled.createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: ${theme.colors.isabelline};
   }
 
   h1,

@@ -5,4 +5,10 @@ export const theme = {
     lg: 991.98,
     xl: 1199.98,
   },
+
+  colors: {
+    isabelline: "#F6F5F1",
+    white: "#FFFFFF",
+    black: "#000000",
+  },
 }

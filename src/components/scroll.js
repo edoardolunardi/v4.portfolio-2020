@@ -49,7 +49,8 @@ const Scroll = callbacks => {
     }, 200)
 
     // Animate images
-    document.querySelectorAll(".animate-image").forEach(image => {
+    const images = document.querySelectorAll(".animate-image")
+    images.forEach(image => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: image,
@@ -65,24 +66,16 @@ const Scroll = callbacks => {
     })
 
     // Animate titles
-    document.querySelectorAll(".animate-title").forEach(title => {
-      //   const tl = gsap.timeline({
-      //     scrollTrigger: {
-      //       trigger: title,
-      //       scroller: callbacks.container.current,
-      //       scrub: true,
-      //       markers: true,
-      //     },
-      //   })
-
-      //   tl.set(title, {
-      //     scale: 1.5,
-      //   }).to(title, { scale: 1 })
+    const titles = document.querySelectorAll(".animate-title")
+    titles.forEach(title => {
       ScrollTrigger.create({
         trigger: title,
         scroller: callbacks.container.current,
         scrub: true,
         markers: true,
+        start: "top center+=300",
+        toggleClass: "visible",
+        once: true,
       })
     })
 
