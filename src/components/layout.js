@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import GlobalStyles from "../styles/global"
 import useMediaQuery from "../hooks/useMediaQuery"
+import Scroll from "../components/scroll"
 
 const Main = styled.div`
   position: fixed;
@@ -20,6 +21,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
+      <Scroll container={scrollContainerRef} />
       <Main ref={scrollContainerRef}>{children}</Main>
     </>
   )
