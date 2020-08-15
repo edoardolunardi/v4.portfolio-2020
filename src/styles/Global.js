@@ -1,10 +1,10 @@
-import * as styled from "styled-components"
+import { createGlobalStyle } from "styled-components"
 import { normalize } from "styled-normalize"
 import FG from "../fonts/FG-medium.woff"
 import locomotive from "./locomotive.css"
 import { theme } from "./theme"
 
-export default styled.createGlobalStyle`
+export default createGlobalStyle`
   @font-face {
     font-family: FG;
     src: url(${FG}) format("woff");
