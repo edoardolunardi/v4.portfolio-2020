@@ -19,7 +19,7 @@ const Container = styled.div`
 `
 
 const Title = styled.h2`
-  font-size: 13.268vw;
+  font-size: 13.339vw;
   position: absolute;
   bottom: 0;
   margin-bottom: -2.5vw;

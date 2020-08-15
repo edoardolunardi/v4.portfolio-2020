@@ -26,7 +26,7 @@ const Name = styled.h2`
 `
 
 const Title = styled.h1`
-  font-size: 13.268vw;
+  font-size: 13.339vw;
   margin-left: -0.5vw;
   padding-top: 22vw;
   line-height: 0.8;
@@ -50,7 +50,11 @@ const IndexPage = () => {
         <TitleSpan>End developer</TitleSpan>
       </Title>
       {projects.map((project, i) => (
-        <ProjectPreview title={project} left={i % 2 === 0} />
+        <ProjectPreview
+          title={project}
+          left={i % 2 === 0}
+          key={`project-${i}`}
+        />
       ))}
     </Layout>
   )

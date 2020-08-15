@@ -16,10 +16,12 @@ export default styled.createGlobalStyle`
     font-family: FG, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
+    overflow-x: hidden;
+    height: 100%;
   }
 
   body {
-    padding: 1vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
