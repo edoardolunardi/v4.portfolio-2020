@@ -48,7 +48,9 @@ const ProjectPreview = ({ title, left }) => {
   return (
     <Container>
       {map[title]}
-      <Title left={left}>{title}</Title>
+      <Title left={left} className="animate-title">
+        {title}
+      </Title>
     </Container>
   )
 }

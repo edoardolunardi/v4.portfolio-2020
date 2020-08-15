@@ -48,22 +48,43 @@ const Scroll = callbacks => {
       ScrollTrigger.refresh()
     }, 200)
 
-    document
-      .querySelectorAll(".animate-image > picture > img")
-      .forEach(image => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: image,
-            scroller: callbacks.container.current,
-            scrub: true,
-            markers: true,
-          },
-        })
-
-        tl.set(image, {
-          scale: 1.5,
-        }).to(image, { scale: 1 })
+    // Animate images
+    document.querySelectorAll(".animate-image").forEach(image => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: image,
+          scroller: callbacks.container.current,
+          scrub: true,
+          markers: true,
+        },
       })
+
+      tl.set(image, {
+        scale: 1.5,
+      }).to(image, { scale: 1 })
+    })
+
+    // Animate titles
+    document.querySelectorAll(".animate-title").forEach(title => {
+      //   const tl = gsap.timeline({
+      //     scrollTrigger: {
+      //       trigger: title,
+      //       scroller: callbacks.container.current,
+      //       scrub: true,
+      //       markers: true,
+      //     },
+      //   })
+
+      //   tl.set(title, {
+      //     scale: 1.5,
+      //   }).to(title, { scale: 1 })
+      ScrollTrigger.create({
+        trigger: title,
+        scroller: callbacks.container.current,
+        scrub: true,
+        markers: true,
+      })
+    })
 
     return () => {
       if (locomotiveScroll) locomotiveScroll.destroy()
