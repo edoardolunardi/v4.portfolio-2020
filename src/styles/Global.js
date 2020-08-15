@@ -19,6 +19,7 @@ export default styled.createGlobalStyle`
     overscroll-behavior-y: none;
     overflow-x: hidden;
     height: 100%;
+    user-select: none;
   }
 
   body {
