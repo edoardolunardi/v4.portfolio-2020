@@ -7,6 +7,7 @@ const useSmoothScroll = (ref, isDesktop) => {
   const rafId = useRef(null)
   const rafActive = useRef(false)
   const ease = 0.07
+
   useEffect(() => {
     const setTransform = (el, transform) => {
       if (el) {
@@ -40,7 +41,6 @@ const useSmoothScroll = (ref, isDesktop) => {
     }
 
     const setupAnimation = () => {
-      console.log(ref.current.clientHeight)
       document.body.style.height = `${ref.current.clientHeight}px`
       startAnimation()
     }
@@ -54,6 +54,7 @@ const useSmoothScroll = (ref, isDesktop) => {
       setTimeout(() => {
         setupAnimation()
       }, 200)
+
       window.addEventListener("scroll", updateScroll)
       window.addEventListener("resize", debounce(setupAnimation, 100))
       return () => {
