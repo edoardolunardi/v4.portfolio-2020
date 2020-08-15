@@ -1,6 +1,7 @@
 import * as styled from "styled-components"
 import { normalize } from "styled-normalize"
 import FG from "../fonts/FG-medium.woff"
+import locomotive from "./locomotive.css"
 
 export default styled.createGlobalStyle`
   @font-face {
@@ -11,6 +12,8 @@ export default styled.createGlobalStyle`
   }
 
   ${normalize}
+
+  ${locomotive}
 
   html {
     font-family: FG, sans-serif;
