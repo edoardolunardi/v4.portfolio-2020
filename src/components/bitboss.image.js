@@ -19,6 +19,7 @@ const Bitboss = () => {
     <Img
       fluid={data.placeholderImage.childImageSharp.fluid}
       draggable={false}
+      className="animate-image"
     />
   )
 }

@@ -18,7 +18,7 @@ const Emerge = () => {
   return (
     <Img
       fluid={data.placeholderImage.childImageSharp.fluid}
-      draggable={false}
+      className="animate-image"
     />
   )
 }

@@ -2,7 +2,6 @@ import React, { useRef } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import GlobalStyles from "../styles/global"
-import useSmoothScroll from "../hooks/useSmoothScroll"
 import useMediaQuery from "../hooks/useMediaQuery"
 
 const Main = styled.div`
@@ -17,8 +16,6 @@ const Main = styled.div`
 const Layout = ({ children }) => {
   const scrollContainerRef = useRef(null)
   const isMobile = useMediaQuery("md")
-
-  useSmoothScroll(scrollContainerRef, isMobile)
 
   return (
     <>

@@ -38,7 +38,7 @@ export default styled.createGlobalStyle`
     font-weight: normal;
   }
 
-  .gatsby-image-wrapper {
+  .animate-image {
     height: 100%;
   }
 `

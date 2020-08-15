@@ -12,6 +12,7 @@ const Container = styled.div`
   height: 60vw;
   position: relative;
   margin-bottom: 4vw;
+  overflow: hidden;
 
   &:last-of-type {
     margin-bottom: 0;
