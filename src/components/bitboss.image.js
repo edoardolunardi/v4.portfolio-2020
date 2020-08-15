@@ -15,7 +15,12 @@ const Bitboss = () => {
     }
   `)
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+    <Img
+      fluid={data.placeholderImage.childImageSharp.fluid}
+      draggable={false}
+    />
+  )
 }
 
 export default Bitboss

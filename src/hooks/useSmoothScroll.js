@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import debounce from "lodash/debounce"
 
-const useSmoothScroll = (ref, isDesktop) => {
+const useSmoothScroll = (ref, isMobile) => {
   const current = useRef(0)
   const target = useRef(0)
   const rafId = useRef(null)
@@ -50,7 +50,7 @@ const useSmoothScroll = (ref, isDesktop) => {
       startAnimation()
     }
 
-    if (isDesktop) {
+    if (!isMobile) {
       setTimeout(() => {
         setupAnimation()
       }, 200)
@@ -62,7 +62,7 @@ const useSmoothScroll = (ref, isDesktop) => {
         window.removeEventListener("resize", setupAnimation)
       }
     }
-  }, [isDesktop, ref])
+  }, [isMobile, ref])
 }
 
 export default useSmoothScroll
