@@ -56,7 +56,7 @@ const Scroll = callbacks => {
             trigger: image,
             scroller: callbacks.container.current,
             scrub: true,
-            end: "+=200%",
+            markers: true,
           },
         })
 
