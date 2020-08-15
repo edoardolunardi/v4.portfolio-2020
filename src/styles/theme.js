@@ -11,4 +11,8 @@ export const theme = {
     white: "#FFFFFF",
     black: "#000000",
   },
+
+  transitions: {
+    bezier: "cubic-bezier(0.15, 0.85, 0.45,1);",
+  },
 }

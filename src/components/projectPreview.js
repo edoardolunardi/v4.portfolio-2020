@@ -29,7 +29,8 @@ const Title = styled.h2`
   color: ${theme.colors.white};
   transform: translateY(100px);
   opacity: 0;
-  transition: transform 500ms ease-in-out, opacity ease-in-out;
+  transition: transform 1s ${theme.transitions.bezier},
+    opacity 1s ${theme.transitions.bezier};
   ${props =>
     props.left
       ? css`

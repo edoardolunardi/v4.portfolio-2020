@@ -56,12 +56,11 @@ const Scroll = callbacks => {
           trigger: image,
           scroller: callbacks.container.current,
           scrub: true,
-          markers: true,
         },
       })
 
       tl.set(image, {
-        scale: 1.5,
+        scale: 1.3,
       }).to(image, { scale: 1 })
     })
 
@@ -72,7 +71,6 @@ const Scroll = callbacks => {
         trigger: title,
         scroller: callbacks.container.current,
         scrub: true,
-        markers: true,
         start: "top center+=300",
         toggleClass: "visible",
         once: true,
