@@ -53,7 +53,6 @@ const Scroll = callbacks => {
       ScrollTrigger.create({
         trigger: title,
         scroller: container,
-        markers: true,
         toggleClass: "visible",
         start: "top 85%",
         once: true,
