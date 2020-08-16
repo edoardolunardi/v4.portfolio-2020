@@ -19,13 +19,13 @@ export default createGlobalStyle`
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
     height: 100%;
-    user-select: none;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: ${theme.colors.isabelline};
+    color: ${theme.colors.black};
     height: 100%;
   }
 
@@ -42,5 +42,9 @@ export default createGlobalStyle`
 
   .animate-image {
     height: 100%;
+  }
+
+  a{
+    color: ${theme.colors.black};
   }
 `

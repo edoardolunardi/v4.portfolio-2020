@@ -25,6 +25,7 @@ const Name = styled.h2`
 `
 
 const Title = styled.h1`
+  user-select: none;
   font-size: 13.339vw;
   margin-left: -0.5vw;
   padding-top: 22vw;
