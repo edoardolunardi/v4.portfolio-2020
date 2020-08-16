@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 import { normalize } from "styled-normalize"
 import FG from "../fonts/FG-medium.woff"
-import { theme } from "../components/theme"
 
 export default createGlobalStyle`
   @font-face {
