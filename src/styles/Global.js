@@ -13,12 +13,10 @@ export default createGlobalStyle`
 
   ${normalize}
 
-
   html {
     font-family: FG, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    overscroll-behavior-y: none;
     overflow-x: hidden;
     height: 100%;
     user-select: none;
@@ -28,6 +26,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: ${theme.colors.isabelline};
+    height: 100%;
   }
 
   h1,
