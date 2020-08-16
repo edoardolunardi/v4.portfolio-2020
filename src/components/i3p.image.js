@@ -18,7 +18,7 @@ const I3p = () => {
   return (
     <Img
       fluid={data.placeholderImage.childImageSharp.fluid}
-      className="animate-image"
+      className="project-image"
     />
   )
 }

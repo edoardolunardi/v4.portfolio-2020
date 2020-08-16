@@ -33,7 +33,7 @@ const Scroll = callbacks => {
     smooth.addListener(ScrollTrigger.update)
 
     // Animate images
-    const images = document.querySelectorAll(".animate-image")
+    const images = document.querySelectorAll(".project-image")
     images.forEach(image => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -49,7 +49,7 @@ const Scroll = callbacks => {
     })
 
     // Animate titles
-    const titles = document.querySelectorAll(".animate-title")
+    const titles = document.querySelectorAll(".animate")
     titles.forEach(title => {
       ScrollTrigger.create({
         trigger: title,
@@ -58,6 +58,19 @@ const Scroll = callbacks => {
         markers: true,
         toggleClass: "visible",
         end: "top center+=300",
+        once: true,
+      })
+    })
+
+    // Animate content
+    const content = document.querySelectorAll(".animate")
+    content.forEach(c => {
+      ScrollTrigger.create({
+        trigger: c,
+        scroller: container,
+        scrub: true,
+        markers: true,
+        toggleClass: "visible",
         once: true,
       })
     })

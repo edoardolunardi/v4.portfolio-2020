@@ -12,6 +12,7 @@ const Main = styled.main`
   padding: ${theme.padding.content};
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 `
 
 const Layout = ({ children, location }) => {

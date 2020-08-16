@@ -41,7 +41,7 @@ export default createGlobalStyle`
     font-weight: normal;
   }
 
-  .animate-image {
+  .project-image {
     height: 100%;
   }
 
@@ -52,5 +52,17 @@ export default createGlobalStyle`
 
   span {
     text-transform: uppercase;
+  }
+
+  .animate {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 1s ${theme.transitions.bezier},
+    opacity 1s ${theme.transitions.bezier};
+  }
+
+  .animate.visible {
+    transform: translateY(0);
+    opacity: 1;
   }
 `

@@ -29,10 +29,6 @@ const Title = styled.h2`
   margin-right: -0.3vw;
   color: ${theme.colors.white};
   z-index: 10;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: transform 1s ${theme.transitions.bezier},
-    opacity 1s ${theme.transitions.bezier};
   ${props =>
     props.left
       ? css`
@@ -42,11 +38,6 @@ const Title = styled.h2`
       : css`
           right: 0;
         `}
-
-  &.visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
 `
 
 const ProjectPreview = ({ title, left }) => {
@@ -60,7 +51,7 @@ const ProjectPreview = ({ title, left }) => {
   return (
     <Container>
       {map[title]}
-      <Title left={left} className="animate-title">
+      <Title left={left} className="animate">
         {title}
       </Title>
     </Container>

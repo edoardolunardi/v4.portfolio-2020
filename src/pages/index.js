@@ -41,7 +41,11 @@ const TitleSpan = styled.span`
 const About = styled.div`
   width: 100%;
   margin-top: 8vw;
-  margin-bottom: calc(8vw + ${theme.fontSize.base});
+  margin-bottom: 8vw;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 1s ${theme.transitions.bezier},
+    opacity 1s ${theme.transitions.bezier};
 `
 
 const AboutContent = styled.p`
@@ -58,14 +62,15 @@ const AboutContact = styled.a`
   display: inline-block;
 `
 
+const CopyWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`
+
 const Copy = styled.span`
   font-size: ${theme.fontSize.small};
   display: block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-right: ${theme.padding.content};
-  padding-bottom: ${theme.padding.content};
 `
 
 const IndexPage = () => {
@@ -87,7 +92,7 @@ const IndexPage = () => {
           key={`project-${i}`}
         />
       ))}
-      <About>
+      <About className="animate">
         <AboutContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -101,7 +106,9 @@ const IndexPage = () => {
           <AboutContact href="#">Linkedin</AboutContact>
         </AboutContactWrapper>
       </About>
-      <Copy>All images are copyright to their respective owners</Copy>
+      <CopyWrapper>
+        <Copy>All images are copyright to their respective owners</Copy>
+      </CopyWrapper>
     </>
   )
 }
