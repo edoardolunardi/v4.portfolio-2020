@@ -27,6 +27,7 @@ const Title = styled.h2`
   margin-bottom: -2.5vw;
   margin-right: -0.3vw;
   color: ${theme.colors.white};
+  z-index: 10;
   transform: translateY(100px);
   opacity: 0;
   transition: transform 1s ${theme.transitions.bezier},

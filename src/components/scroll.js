@@ -55,17 +55,16 @@ const Scroll = callbacks => {
         trigger: title,
         scroller: container,
         scrub: true,
-        start: "top center",
+        markers: true,
+        toggleClass: "visible",
+        end: "top center+=300",
+        once: true,
       })
     })
 
     setTimeout(() => {
       ScrollTrigger.refresh()
     }, 100)
-
-    return () => {
-      Scrollbar.destroy()
-    }
   }, [callbacks, container])
 
   return null
