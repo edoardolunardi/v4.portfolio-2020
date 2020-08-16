@@ -4,7 +4,7 @@ import styled from "styled-components"
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  padding: ${props => props.theme.padding.content};
+  padding: ${props => props.theme.paddings.content};
   box-sizing: border-box;
   display: flex;
   align-items: center;

@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Scrollbar from "smooth-scrollbar"
 
 const Scroll = callbacks => {
-  const container = document.body
+  const container = typeof window !== "undefined" ? document.body : null
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 

@@ -3,10 +3,9 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import GlobalStyles from "../styles/global"
 import useMediaQuery from "../hooks/useMediaQuery"
-import { isChrome, isFirefox, isSafari } from "react-device-detect"
+import useBrowserDetect from "../hooks/useBrowserDetect"
 import Scroll from "../components/scroll"
 import ChangeBrowser from "../components/changeBrowser"
-import Theme from "./theme"
 
 const Main = styled.main`
   padding: ${props => props.theme.paddings.content};
@@ -17,17 +16,18 @@ const Main = styled.main`
 
 const Layout = ({ children, location }) => {
   const isMobile = useMediaQuery("md")
+  const { isValidBrowser } = useBrowserDetect()
 
   return (
     <>
       <GlobalStyles />
-      {!isChrome && !isFirefox && !isSafari ? (
-        <ChangeBrowser />
-      ) : (
+      {isValidBrowser ? (
         <>
           <Scroll location={location} />
           <Main>{children}</Main>
         </>
+      ) : (
+        <ChangeBrowser />
       )}
     </>
   )
