@@ -1,4 +1,7 @@
-export const theme = {
+import React from "react"
+import { ThemeProvider } from "styled-components"
+
+const theme = {
   breakpoints: {
     sm: 575.98,
     md: 767.98,
@@ -16,14 +19,20 @@ export const theme = {
     bezier: "cubic-bezier(0.15, 0.85, 0.45,1);",
   },
 
-  fontSize: {
+  fontSizes: {
     small: "1.6vw",
     base: "4vw",
     medium: "7vw",
     big: "13.250vw",
   },
 
-  padding: {
+  paddings: {
     content: "1vw",
   },
 }
+
+const Theme = ({ children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+)
+
+export default Theme

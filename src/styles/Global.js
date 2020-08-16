@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 import { normalize } from "styled-normalize"
 import FG from "../fonts/FG-medium.woff"
-import { theme } from "./theme"
+import { theme } from "../components/theme"
 
 export default createGlobalStyle`
   @font-face {
@@ -24,8 +24,8 @@ export default createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${theme.colors.isabelline};
-    color: ${theme.colors.black};
+    background-color: ${props => props.theme.colors.isabelline};
+    color: ${props => props.theme.colors.black};
     height: 100%;
   }
 
@@ -46,7 +46,7 @@ export default createGlobalStyle`
   }
 
   a {
-    color: ${theme.colors.black};
+    color: ${props => props.theme.colors.black};
     text-transform: uppercase;
   }
 
@@ -61,7 +61,8 @@ export default createGlobalStyle`
           opacity: 0;
           transition-property: transform, opacity;
           transition-duration: 1s;
-          transition-timing-function: ${theme.transitions.bezier};
+          transition-timing-function: ${props =>
+            props.theme.transitions.bezier};
       }
   }
 
@@ -73,8 +74,8 @@ export default createGlobalStyle`
   .animate {
     transform: translateY(100px);
     opacity: 0;
-    transition: transform 1s ${theme.transitions.bezier},
-    opacity 1s ${theme.transitions.bezier};
+    transition: transform 1s ${props => props.theme.transitions.bezier},
+    opacity 1s ${props => props.theme.transitions.bezier};
   }
 
   .animate.visible {

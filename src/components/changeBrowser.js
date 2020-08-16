@@ -1,18 +1,17 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../styles/theme"
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  padding: ${theme.padding.content};
+  padding: ${props => props.theme.padding.content};
   box-sizing: border-box;
   display: flex;
   align-items: center;
 `
 
 const Title = styled.h1`
-  font-size: ${theme.fontSize.medium};
+  font-size: ${props => props.theme.fontSizes.medium};
 `
 
 const BrowserLink = styled.a`

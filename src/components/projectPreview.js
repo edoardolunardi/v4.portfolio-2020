@@ -1,7 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import PropTypes from "prop-types"
-import { theme } from "../styles/theme"
 import Spanify from "../components/spanify"
 
 import Diego from "./diego.image"
@@ -23,11 +22,11 @@ const Container = styled.div`
 
 const Title = styled.h2`
   user-select: none;
-  font-size: ${theme.fontSize.big};
+  font-size: ${props => props.theme.fontSizes.big};
   position: absolute;
   bottom: 0;
   margin-right: -0.3vw;
-  color: ${theme.colors.white};
+  color: ${props => props.theme.colors.white};
   z-index: 10;
   line-height: 0.7;
   ${props =>

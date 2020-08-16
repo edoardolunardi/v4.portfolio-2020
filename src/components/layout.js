@@ -6,10 +6,10 @@ import useMediaQuery from "../hooks/useMediaQuery"
 import { isChrome, isFirefox, isSafari } from "react-device-detect"
 import Scroll from "../components/scroll"
 import ChangeBrowser from "../components/changeBrowser"
-import { theme } from "../styles/theme"
+import Theme from "./theme"
 
 const Main = styled.main`
-  padding: ${theme.padding.content};
+  padding: ${props => props.theme.paddings.content};
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;

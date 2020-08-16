@@ -4,16 +4,15 @@ import styled from "styled-components"
 import SEO from "../components/seo"
 import Spanify from "../components/spanify"
 import ProjectPreview from "../components/projectPreview"
-import { theme } from "../styles/theme"
 
 const Year = styled.span`
   display: block;
   position: absolute;
   top: 0;
   left: 0;
-  font-size: ${theme.fontSize.small};
-  padding-top: ${theme.padding.content};
-  padding-left: ${theme.padding.content};
+  font-size: ${props => props.theme.fontSizes.small};
+  padding-top: ${props => props.theme.paddings.content};
+  padding-left: ${props => props.theme.paddings.content};
 `
 
 const Name = styled.h2`
@@ -21,9 +20,9 @@ const Name = styled.h2`
   position: absolute;
   top: 0;
   right: 0;
-  font-size: ${theme.fontSize.small};
-  padding-top: ${theme.padding.content};
-  padding-right: ${theme.padding.content};
+  font-size: ${props => props.theme.fontSizes.small};
+  padding-top: ${props => props.theme.paddings.content};
+  padding-right: ${props => props.theme.paddings.content};
 `
 
 const Title = styled.h1`
@@ -32,7 +31,7 @@ const Title = styled.h1`
   padding-top: 22vw;
   line-height: 0.8;
   margin-bottom: 4vw;
-  font-size: ${theme.fontSize.big};
+  font-size: ${props => props.theme.fontSizes.big};
 `
 
 const TitleBlock = styled.div``
@@ -44,19 +43,17 @@ const About = styled.div`
 `
 
 const AboutContent = styled.p`
-  font-size: ${theme.fontSize.base};
+  font-size: ${props => props.theme.fontSizes.base};
   margin-bottom: 8vw;
   user-select: none;
 `
-
-const AboutContentSpan = styled.span``
 
 const AboutContactWrapper = styled.span`
   display: block;
 `
 
 const AboutContact = styled.a`
-  font-size: ${theme.fontSize.base};
+  font-size: ${props => props.theme.fontSizes.base};
   display: inline-block;
 `
 
@@ -67,7 +64,7 @@ const CopyWrapper = styled.div`
 `
 
 const Copy = styled.span`
-  font-size: ${theme.fontSize.small};
+  font-size: ${props => props.theme.fontSizes.small};
   display: block;
 `
 
