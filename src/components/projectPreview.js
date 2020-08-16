@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Title = styled.h2`
   user-select: none;
-  font-size: 13.339vw;
+  font-size: ${theme.fontSize.big};
   position: absolute;
   bottom: 0;
   margin-bottom: -2.5vw;

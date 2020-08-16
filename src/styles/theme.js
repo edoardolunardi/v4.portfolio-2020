@@ -15,4 +15,15 @@ export const theme = {
   transitions: {
     bezier: "cubic-bezier(0.15, 0.85, 0.45,1);",
   },
+
+  fontSize: {
+    small: "1.6vw",
+    base: "4vw",
+    medium: "7vw",
+    big: "13.339vw",
+  },
+
+  padding: {
+    content: "1vw",
+  },
 }

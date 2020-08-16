@@ -34,7 +34,8 @@ export default createGlobalStyle`
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p {
     margin: 0;
     text-transform: uppercase;
     font-weight: normal;
@@ -44,7 +45,12 @@ export default createGlobalStyle`
     height: 100%;
   }
 
-  a{
+  a {
     color: ${theme.colors.black};
+    text-transform: uppercase;
+  }
+
+  span {
+    text-transform: uppercase;
   }
 `

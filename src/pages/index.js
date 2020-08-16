@@ -3,15 +3,16 @@ import styled from "styled-components"
 
 import SEO from "../components/seo"
 import ProjectPreview from "../components/projectPreview"
+import { theme } from "../styles/theme"
 
 const Year = styled.span`
   display: block;
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 1.6vw;
-  padding-top: 1vw;
-  padding-left: 1vw;
+  font-size: ${theme.fontSize.small};
+  padding-top: ${theme.padding.content};
+  padding-left: ${theme.padding.content};
 `
 
 const Name = styled.h2`
@@ -19,14 +20,14 @@ const Name = styled.h2`
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 1.6vw;
-  padding-top: 1vw;
-  padding-right: 1vw;
+  font-size: ${theme.fontSize.small};
+  padding-top: ${theme.padding.content};
+  padding-right: ${theme.padding.content};
 `
 
 const Title = styled.h1`
   user-select: none;
-  font-size: 13.339vw;
+  font-size: ${theme.fontSize.big};
   margin-left: -0.5vw;
   padding-top: 22vw;
   line-height: 0.8;
@@ -35,6 +36,36 @@ const Title = styled.h1`
 
 const TitleSpan = styled.span`
   display: ${props => (props.block ? "block" : "inline-block")};
+`
+
+const About = styled.div`
+  width: 100%;
+  margin-top: 8vw;
+  margin-bottom: calc(8vw + ${theme.fontSize.base});
+`
+
+const AboutContent = styled.p`
+  font-size: ${theme.fontSize.base};
+  margin-bottom: 8vw;
+  user-select: none;
+`
+const AboutContactWrapper = styled.span`
+  display: block;
+`
+
+const AboutContact = styled.a`
+  font-size: ${theme.fontSize.base};
+  display: inline-block;
+`
+
+const Copy = styled.span`
+  font-size: ${theme.fontSize.small};
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: ${theme.padding.content};
+  padding-bottom: ${theme.padding.content};
 `
 
 const IndexPage = () => {
@@ -56,6 +87,21 @@ const IndexPage = () => {
           key={`project-${i}`}
         />
       ))}
+      <About>
+        <AboutContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat
+        </AboutContent>
+        <AboutContactWrapper>
+          <AboutContact href="#">Email</AboutContact>
+        </AboutContactWrapper>
+        <AboutContactWrapper>
+          <AboutContact href="#">Linkedin</AboutContact>
+        </AboutContactWrapper>
+      </About>
+      <Copy>All images are copyright to their respective owners</Copy>
     </>
   )
 }
