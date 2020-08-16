@@ -54,6 +54,22 @@ export default createGlobalStyle`
     text-transform: uppercase;
   }
 
+  .animate-stagger {
+      overflow: hidden;
+      > span {
+          transform: translateY(100px);
+          opacity: 0;
+          transition-property: transform, opacity;
+          transition-duration: 1s;
+          transition-timing-function: ${theme.transitions.bezier};
+      }
+  }
+
+  .animate-stagger.visible > span {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
   .animate {
     transform: translateY(100px);
     opacity: 0;

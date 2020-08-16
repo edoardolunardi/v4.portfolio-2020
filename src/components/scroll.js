@@ -42,35 +42,33 @@ const Scroll = callbacks => {
           scrub: true,
         },
       })
-
       tl.set(image, {
         scale: 1.3,
       }).to(image, { scale: 1 })
     })
 
-    // Animate titles
-    const titles = document.querySelectorAll(".animate")
+    // Animate titles with stagger
+    const titles = document.querySelectorAll(".animate-stagger")
     titles.forEach(title => {
       ScrollTrigger.create({
         trigger: title,
         scroller: container,
-        scrub: true,
         markers: true,
         toggleClass: "visible",
-        end: "top center+=300",
+        start: "top 85%",
         once: true,
       })
     })
 
     // Animate content
     const content = document.querySelectorAll(".animate")
-    content.forEach(c => {
+    content.forEach(el => {
       ScrollTrigger.create({
-        trigger: c,
+        trigger: el,
         scroller: container,
         scrub: true,
-        markers: true,
         toggleClass: "visible",
+        start: "top 85%",
         once: true,
       })
     })

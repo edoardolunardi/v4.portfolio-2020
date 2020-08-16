@@ -20,7 +20,7 @@ export const theme = {
     small: "1.6vw",
     base: "4vw",
     medium: "7vw",
-    big: "13.339vw",
+    big: "13.250vw",
   },
 
   padding: {

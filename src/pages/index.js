@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import SEO from "../components/seo"
+import Spanify from "../components/spanify"
 import ProjectPreview from "../components/projectPreview"
 import { theme } from "../styles/theme"
 
@@ -27,25 +28,19 @@ const Name = styled.h2`
 
 const Title = styled.h1`
   user-select: none;
-  font-size: ${theme.fontSize.big};
   margin-left: -0.5vw;
   padding-top: 22vw;
   line-height: 0.8;
   margin-bottom: 4vw;
+  font-size: ${theme.fontSize.big};
 `
 
-const TitleSpan = styled.span`
-  display: ${props => (props.block ? "block" : "inline-block")};
-`
+const TitleBlock = styled.div``
 
 const About = styled.div`
   width: 100%;
   margin-top: 8vw;
   margin-bottom: 8vw;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: transform 1s ${theme.transitions.bezier},
-    opacity 1s ${theme.transitions.bezier};
 `
 
 const AboutContent = styled.p`
@@ -82,8 +77,12 @@ const IndexPage = () => {
       <Year>2020</Year>
       <Name>Edoardo Lunardi</Name>
       <Title>
-        <TitleSpan block>Front</TitleSpan>
-        <TitleSpan>End developer</TitleSpan>
+        <TitleBlock className="animate-stagger">
+          <Spanify text="Front" />
+        </TitleBlock>
+        <TitleBlock className="animate-stagger">
+          <Spanify text="End developer" />
+        </TitleBlock>
       </Title>
       {projects.map((project, i) => (
         <ProjectPreview

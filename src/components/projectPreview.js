@@ -2,6 +2,7 @@ import React from "react"
 import styled, { css } from "styled-components"
 import PropTypes from "prop-types"
 import { theme } from "../styles/theme"
+import Spanify from "../components/spanify"
 
 import Diego from "./diego.image"
 import Emerge from "./emerge.image"
@@ -25,10 +26,10 @@ const Title = styled.h2`
   font-size: ${theme.fontSize.big};
   position: absolute;
   bottom: 0;
-  margin-bottom: -2.5vw;
   margin-right: -0.3vw;
   color: ${theme.colors.white};
   z-index: 10;
+  line-height: 0.7;
   ${props =>
     props.left
       ? css`
@@ -51,8 +52,8 @@ const ProjectPreview = ({ title, left }) => {
   return (
     <Container>
       {map[title]}
-      <Title left={left} className="animate">
-        {title}
+      <Title left={left} className="animate-stagger">
+        <Spanify text={title} />
       </Title>
     </Container>
   )
