@@ -1,52 +1,17 @@
 import { useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-// // We are excluding this from loading at build time in gatsby-node.js
-import LocomotiveScroll from "locomotive-scroll"
+import Scrollbar from "smooth-scrollbar"
 
 const Scroll = callbacks => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    let locomotiveScroll
-
-    locomotiveScroll = new LocomotiveScroll({
-      el: callbacks.container.current,
-      smooth: true,
-      smoothMobile: true,
-      lerp: 0.07,
-      firefoxMultiplier: 100,
+    Scrollbar.init(document.documentElement, {
+      damping: 0.1,
+      delegateTo: document,
+      renderByPixels: true,
     })
-
-    setTimeout(() => {
-      locomotiveScroll.update()
-    }, 200)
-
-    locomotiveScroll.on("scroll", () => {
-      ScrollTrigger.update()
-    })
-
-    ScrollTrigger.scrollerProxy(callbacks.container.current, {
-      scrollTop(value) {
-        return arguments.length
-          ? locomotiveScroll.scrollTo(value, 0, 0)
-          : locomotiveScroll.scroll.instance.scroll.y
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        }
-      },
-    })
-
-    ScrollTrigger.addEventListener("refresh", () => locomotiveScroll.update())
-
-    setTimeout(() => {
-      ScrollTrigger.refresh()
-    }, 200)
 
     // Animate images
     const images = document.querySelectorAll(".animate-image")
@@ -78,7 +43,7 @@ const Scroll = callbacks => {
     })
 
     return () => {
-      if (locomotiveScroll) locomotiveScroll.destroy()
+      Scrollbar.destroy()
     }
   }, [callbacks])
 

@@ -7,11 +7,8 @@ import Scroll from "../components/scroll"
 
 const Main = styled.div`
   padding: 1vw;
-  position: fixed;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
   width: 100%;
+  box-sizing: border-box;
 `
 
 const Layout = ({ children, location }) => {

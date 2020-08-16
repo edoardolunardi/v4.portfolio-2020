@@ -4,7 +4,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /locomotive-scroll/,
+            test: /smooth-scrollbar/,
             use: loaders.null(),
           },
         ],
