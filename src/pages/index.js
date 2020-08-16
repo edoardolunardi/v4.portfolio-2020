@@ -48,6 +48,9 @@ const AboutContent = styled.p`
   margin-bottom: 8vw;
   user-select: none;
 `
+
+const AboutContentSpan = styled.span``
+
 const AboutContactWrapper = styled.span`
   display: block;
 `
@@ -91,12 +94,18 @@ const IndexPage = () => {
           key={`project-${i}`}
         />
       ))}
-      <About className="animate">
-        <AboutContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat
+      <About>
+        <AboutContent className="animate-stagger">
+          <Spanify
+            lines={[
+              "Lorem ipsum dolor sit amet,",
+              "consectetur adipiscing elit, sed do",
+              "eiusmod tempor incididunt ut",
+              "Lorem ipsum dolor sit amet,",
+              "consectetur adipiscing elit, sed do",
+              "eiusmod tempor incididunt ut",
+            ]}
+          />
         </AboutContent>
         <AboutContactWrapper>
           <AboutContact href="#">Email</AboutContact>
