@@ -4,7 +4,7 @@ import { isChrome, isFirefox, isSafari } from "react-device-detect"
 const useBrowserDetect = () => {
   const [isValidBrowser, setIsValidBrowser] = useState(true) // during SSR, let's assume the browser is correct
   useEffect(() => {
-    setIsValidBrowser(isChrome || isFirefox || isFirefox)
+    setIsValidBrowser(isChrome || isFirefox || isSafari)
   }, [])
 
   return { isValidBrowser }
