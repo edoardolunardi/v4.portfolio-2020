@@ -3,10 +3,10 @@ import styled, { css } from "styled-components"
 import PropTypes from "prop-types"
 import Spanify from "../components/spanify"
 
-import Diego from "./diego.image"
-import Emerge from "./emerge.image"
-import Bitboss from "./bitboss.image"
-import I3p from "./i3p.image"
+import Diego from "./project-image/diego.image"
+import Emerge from "./project-image/emerge.image"
+import Bitboss from "./project-image/bitboss.image"
+import I3p from "./project-image/i3p.image"
 
 const Container = styled.div`
   width: 100%;
