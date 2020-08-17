@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import GlobalStyles from "../styles/Global"
 import useMediaQuery from "../hooks/useMediaQuery"
 import useBrowserDetect from "../hooks/useBrowserDetect"
 import Scroll from "../components/scroll"
@@ -18,18 +17,13 @@ const Layout = ({ children, location }) => {
   const isMobile = useMediaQuery("md")
   const { isValidBrowser } = useBrowserDetect()
 
-  return (
+  return isValidBrowser ? (
     <>
-      <GlobalStyles />
-      {isValidBrowser ? (
-        <>
-          <Scroll location={location} />
-          <Main>{children}</Main>
-        </>
-      ) : (
-        <ChangeBrowser />
-      )}
+      <Scroll location={location} />
+      <Main>{children}</Main>
     </>
+  ) : (
+    <ChangeBrowser />
   )
 }
 

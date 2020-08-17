@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Spanify from "../components/spanify"
 import ProjectPreview from "../components/projectPreview"
@@ -72,7 +73,7 @@ const IndexPage = () => {
   const projects = ["diego", "emerge", "bitboss", "i3p"]
 
   return (
-    <>
+    <Layout>
       <SEO title="Home" />
       <Year>2020</Year>
       <Name>Edoardo Lunardi</Name>
@@ -114,7 +115,7 @@ const IndexPage = () => {
       <CopyWrapper>
         <Copy>All images are copyright to their respective owners</Copy>
       </CopyWrapper>
-    </>
+    </Layout>
   )
 }
 
