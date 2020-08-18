@@ -62,22 +62,15 @@ export default createGlobalStyle`
           transition-duration: 1s;
           transition-timing-function: ${props =>
             props.theme.transitions.bezier};
+
+          @media screen and (max-width: ${props =>
+            props.theme.breakpoints.md}px){
+            transform: translateY(50px);
+          }
       }
   }
 
   .animate-stagger.visible > span {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .animate {
-    transform: translateY(100px);
-    opacity: 0;
-    transition: transform 1s ${props => props.theme.transitions.bezier},
-    opacity 1s ${props => props.theme.transitions.bezier};
-  }
-
-  .animate.visible {
     transform: translateY(0);
     opacity: 1;
   }

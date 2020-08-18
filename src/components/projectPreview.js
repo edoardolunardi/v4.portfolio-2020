@@ -18,6 +18,10 @@ const Container = styled.div`
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    height: 50vh;
+  }
 `
 
 const Title = styled.h2`

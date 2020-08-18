@@ -14,6 +14,10 @@ const Year = styled.span`
   font-size: ${props => props.theme.fontSizes.small};
   padding-top: ${props => props.theme.paddings.content};
   padding-left: ${props => props.theme.paddings.content};
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.base};
+  }
 `
 
 const Name = styled.h2`
@@ -24,6 +28,10 @@ const Name = styled.h2`
   font-size: ${props => props.theme.fontSizes.small};
   padding-top: ${props => props.theme.paddings.content};
   padding-right: ${props => props.theme.paddings.content};
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.base};
+  }
 `
 
 const Title = styled.h1`
@@ -33,6 +41,10 @@ const Title = styled.h1`
   line-height: 0.8;
   margin-bottom: 4vw;
   font-size: ${props => props.theme.fontSizes.big};
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    padding-top: 30vh;
+  }
 `
 
 const TitleBlock = styled.div``
@@ -47,6 +59,10 @@ const AboutContent = styled.p`
   font-size: ${props => props.theme.fontSizes.base};
   margin-bottom: 8vw;
   user-select: none;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.medium};
+  }
 `
 
 const AboutContactWrapper = styled.span`
@@ -56,6 +72,10 @@ const AboutContactWrapper = styled.span`
 const AboutContact = styled.a`
   font-size: ${props => props.theme.fontSizes.base};
   display: inline-block;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.medium};
+  }
 `
 
 const CopyWrapper = styled.div`
@@ -67,6 +87,12 @@ const CopyWrapper = styled.div`
 const Copy = styled.span`
   font-size: ${props => props.theme.fontSizes.small};
   display: block;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.base};
+    text-align: right;
+    max-width: 70vw;
+  }
 `
 
 const IndexPage = () => {

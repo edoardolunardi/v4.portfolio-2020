@@ -59,19 +59,6 @@ const Scroll = callbacks => {
       })
     })
 
-    // Animate content
-    const content = document.querySelectorAll(".animate")
-    content.forEach(el => {
-      ScrollTrigger.create({
-        trigger: el,
-        scroller: container,
-        scrub: true,
-        toggleClass: "visible",
-        start: "top 85%",
-        once: true,
-      })
-    })
-
     setTimeout(() => {
       ScrollTrigger.refresh()
     }, 100)
