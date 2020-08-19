@@ -61,7 +61,7 @@ const Scroll = callbacks => {
 
     setTimeout(() => {
       ScrollTrigger.refresh()
-    }, 100)
+    }, 200)
   }, [callbacks, container])
 
   return null
