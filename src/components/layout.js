@@ -25,7 +25,7 @@ const Layout = ({ children, location }) => {
       {showLoader ? (
         <motion.div
           key="loader"
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
           animate={{ y: 0 }}
           exit={{ y: "-200vh" }}
           onAnimationComplete={() => setShowLoader(false)}
