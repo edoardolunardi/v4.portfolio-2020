@@ -18,6 +18,7 @@ export default createGlobalStyle`
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
     height: 100%;
+    overscroll-behavior-y: none;
   }
 
   body {
@@ -26,6 +27,7 @@ export default createGlobalStyle`
     background-color: ${props => props.theme.colors.isabelline};
     color: ${props => props.theme.colors.black};
     height: 100%;
+    overflow: hidden;
   }
 
   h1,

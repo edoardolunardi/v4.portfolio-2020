@@ -27,7 +27,7 @@ const Layout = ({ children, location }) => {
           key="loader"
           transition={{ duration: 1 }}
           animate={{ y: 0 }}
-          exit={{ y: -window.innerHeight }}
+          exit={{ y: "-200vh" }}
           onAnimationComplete={() => setShowLoader(false)}
         >
           <Loader />
