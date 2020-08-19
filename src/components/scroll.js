@@ -4,16 +4,20 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Scrollbar from "smooth-scrollbar"
 
 const Scroll = callbacks => {
-  const container = typeof window !== "undefined" ? document.body : null
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    const smooth = Scrollbar.init(container, {
+    const smooth = Scrollbar.init(document.body, {
       damping: 0.1,
       renderByPixels: true,
+      delegateTo: document,
     })
 
-    ScrollTrigger.scrollerProxy(container, {
+    ScrollTrigger.defaults({
+      scroller: document.body,
+    })
+
+    ScrollTrigger.scrollerProxy(document.body, {
       scrollTop(value) {
         if (arguments.length) {
           smooth.scrollTop = value
@@ -38,7 +42,6 @@ const Scroll = callbacks => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: image,
-          scroller: container,
           scrub: true,
         },
       })
@@ -52,7 +55,6 @@ const Scroll = callbacks => {
     titles.forEach(title => {
       ScrollTrigger.create({
         trigger: title,
-        scroller: container,
         toggleClass: "visible",
         start: "top 85%",
         once: true,
@@ -62,7 +64,7 @@ const Scroll = callbacks => {
     setTimeout(() => {
       ScrollTrigger.refresh()
     }, 200)
-  }, [callbacks, container])
+  }, [callbacks])
 
   return null
 }
