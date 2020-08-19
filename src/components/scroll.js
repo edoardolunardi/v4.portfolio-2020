@@ -42,7 +42,7 @@ const Scroll = callbacks => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: image,
-          scrub: true,
+          scrub: 1,
         },
       })
       tl.set(image, {
