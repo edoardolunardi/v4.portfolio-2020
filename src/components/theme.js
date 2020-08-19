@@ -16,7 +16,7 @@ const theme = {
   },
 
   transitions: {
-    bezier: "cubic-bezier(0.15, 0.85, 0.45,1);",
+    bezier: "cubic-bezier(0.15, 0.85, 0.45, 1);",
   },
 
   fontSizes: {
