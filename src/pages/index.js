@@ -104,10 +104,10 @@ const IndexPage = () => {
       <Year>2020</Year>
       <Name>Edoardo Lunardi</Name>
       <Title>
-        <TitleBlock className="animate-stagger">
+        <TitleBlock>
           <Spanify text="Front" />
         </TitleBlock>
-        <TitleBlock className="animate-stagger">
+        <TitleBlock>
           <Spanify text="End developer" />
         </TitleBlock>
       </Title>
@@ -119,7 +119,7 @@ const IndexPage = () => {
         />
       ))}
       <About>
-        <AboutContent className="animate-stagger">
+        <AboutContent>
           <Spanify
             lines={[
               "Lorem ipsum dolor sit amet,",

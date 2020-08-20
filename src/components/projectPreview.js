@@ -53,9 +53,9 @@ const ProjectPreview = ({ title, left }) => {
   }
 
   return (
-    <Container>
+    <Container data-scroll>
       {map[title]}
-      <Title left={left} className="animate-stagger">
+      <Title left={left}>
         <Spanify text={title} />
       </Title>
     </Container>
