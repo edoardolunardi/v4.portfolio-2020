@@ -8,7 +8,7 @@ const I3p = () => {
       placeholderImage: file(relativePath: { eq: "i3p.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }

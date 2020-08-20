@@ -8,7 +8,7 @@ const Bitboss = () => {
       placeholderImage: file(relativePath: { eq: "bitboss.jpeg" }) {
         childImageSharp {
           fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
