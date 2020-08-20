@@ -119,7 +119,11 @@ const IndexPage = () => {
         />
       ))}
       <About>
-        <AboutContent data-scroll className="transition-stagger">
+        <AboutContent
+          data-scroll
+          data-scroll-offset="40%"
+          className="transition-stagger"
+        >
           <Spanify
             lines={[
               "Lorem ipsum dolor sit amet,",

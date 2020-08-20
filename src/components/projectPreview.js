@@ -55,7 +55,12 @@ const ProjectPreview = ({ title, left }) => {
   return (
     <Container data-scroll>
       {map[title]}
-      <Title left={left} data-scroll className="transition-stagger">
+      <Title
+        left={left}
+        data-scroll
+        data-scroll-offset="20%"
+        className="transition-stagger"
+      >
         <Spanify text={title} />
       </Title>
     </Container>
