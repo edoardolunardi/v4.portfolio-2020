@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 import { normalize } from "styled-normalize"
+import "locomotive-scroll/dist/locomotive-scroll.min.css"
 import FG from "../fonts/FG-medium.woff"
 
 export default createGlobalStyle`
@@ -8,6 +9,17 @@ export default createGlobalStyle`
     src: url(${FG}) format("woff");
     font-weight: normal;
     font-style: normal;
+  }
+
+  @keyframes animate-stagger {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
   }
 
   ${normalize}
@@ -44,6 +56,7 @@ export default createGlobalStyle`
 
   .project-image {
     height: 100%;
+    transform: scale(1.66667);
   }
 
   a {
@@ -55,7 +68,7 @@ export default createGlobalStyle`
     text-transform: uppercase;
   }
 
-  .animate-stagger {
+  .transition-stagger {
       overflow: hidden;
       > span {
           transform: translateY(100px);
@@ -72,8 +85,18 @@ export default createGlobalStyle`
       }
   }
 
-  .animate-stagger.visible > span {
+  .transition-stagger.visible > span {
     transform: translateY(0);
     opacity: 1;
+  }
+
+  .animation-stagger {
+      overflow: hidden;
+      > span {
+          animation-name: animate-stagger;
+          animation-duration: 1s;
+          animation-timing-function: ${props => props.theme.transitions.bezier};
+          animation-fill-mode: both;
+      }
   }
 `

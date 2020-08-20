@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import Spanify from "./spanify"
 
@@ -33,17 +33,11 @@ const Intro = styled.span`
 `
 
 const Loader = () => {
-  const [stagger, setStagger] = useState(false)
-
-  useEffect(() => {
-    setStagger(true)
-  }, [])
-
   return (
     <Container>
       <Panel1>
-        <Intro className={`animate-stagger ${stagger && "visible"}`}>
-          <Spanify text="Keep grinding" />
+        <Intro className="animation-stagger">
+          <Spanify text="Keep grinding" isAnimation />
         </Intro>
       </Panel1>
       <Panel2 />

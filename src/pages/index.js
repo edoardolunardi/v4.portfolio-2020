@@ -104,11 +104,11 @@ const IndexPage = () => {
       <Year>2020</Year>
       <Name>Edoardo Lunardi</Name>
       <Title>
-        <TitleBlock>
-          <Spanify text="Front" />
+        <TitleBlock className="animation-stagger">
+          <Spanify text="Front" isAnimation />
         </TitleBlock>
-        <TitleBlock>
-          <Spanify text="End developer" />
+        <TitleBlock className="animation-stagger">
+          <Spanify text="End developer" isAnimation />
         </TitleBlock>
       </Title>
       {projects.map((project, i) => (
@@ -119,7 +119,7 @@ const IndexPage = () => {
         />
       ))}
       <About>
-        <AboutContent>
+        <AboutContent data-scroll className="transition-stagger">
           <Spanify
             lines={[
               "Lorem ipsum dolor sit amet,",

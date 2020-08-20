@@ -55,7 +55,7 @@ const ProjectPreview = ({ title, left }) => {
   return (
     <Container data-scroll>
       {map[title]}
-      <Title left={left}>
+      <Title left={left} data-scroll className="transition-stagger">
         <Spanify text={title} />
       </Title>
     </Container>
