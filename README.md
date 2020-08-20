@@ -1,1 +1,3 @@
-# HENLO
+# TODO
+
+- remove smooth on mobile

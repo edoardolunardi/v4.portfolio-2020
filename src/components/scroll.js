@@ -9,7 +9,6 @@ const Scroll = callbacks => {
       el: document.querySelector(container),
       smooth: true,
       smoothMobile: true,
-      getDirection: true,
       touchMultiplier: 2.5,
       lerp: 0.07,
       scrollFromAnywhere: true,

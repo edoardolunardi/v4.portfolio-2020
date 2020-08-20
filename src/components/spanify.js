@@ -15,7 +15,6 @@ const Span = styled.span`
 `
 
 const Spanify = ({ text, lines, isAnimation }) => {
-  console.log(isAnimation)
   if (text) {
     const letters = text.split("")
     return (
