@@ -13,11 +13,11 @@ export default createGlobalStyle`
 
   @keyframes animate-stagger {
       from {
-        transform: translateY(100px);
+        transform: translate3d(0, 100px, 0);
         opacity: 0;
       }
       to {
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
         opacity: 1;
       }
   }
@@ -71,7 +71,7 @@ export default createGlobalStyle`
   .transition-stagger {
       overflow: hidden;
       > span {
-          transform: translateY(100px);
+          transform: translate3d(0, 100px, 0);
           opacity: 0;
           transition-property: transform, opacity;
           transition-duration: 1s;
@@ -80,13 +80,13 @@ export default createGlobalStyle`
 
           @media screen and (max-width: ${props =>
             props.theme.breakpoints.md}px){
-            transform: translateY(50px);
+            transform: translate3d(0, 50px, 0);
           }
       }
   }
 
   .transition-stagger.visible > span {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 
