@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -47,7 +47,17 @@ const Title = styled.h1`
   }
 `
 
-const TitleBlock = styled.div``
+const TitleBlock = styled.div`
+  ${props =>
+    props.hasAccent &&
+    css`
+      > span:nth-of-type(1),
+      > span:nth-of-type(3),
+      > span:nth-of-type(10) {
+        color: ${props.theme.colors.accent};
+      }
+    `}
+`
 
 const About = styled.div`
   width: 100%;
@@ -107,7 +117,7 @@ const IndexPage = () => {
         <TitleBlock className="animation-stagger">
           <Spanify text="Front" isAnimation />
         </TitleBlock>
-        <TitleBlock className="animation-stagger">
+        <TitleBlock hasAccent className="animation-stagger">
           <Spanify text="End developer" isAnimation />
         </TitleBlock>
       </Title>
