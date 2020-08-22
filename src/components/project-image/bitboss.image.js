@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 const Bitboss = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "bitboss.jpeg" }) {
+      placeholderImage: file(relativePath: { eq: "bitboss2.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG

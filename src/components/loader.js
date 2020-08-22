@@ -9,7 +9,6 @@ const Container = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 100;
 `
 
 const Panel1 = styled.div`
