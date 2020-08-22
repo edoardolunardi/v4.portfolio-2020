@@ -123,6 +123,7 @@ export default createGlobalStyle`
   .project-image {
     height: 100%;
     transform: scale(1.66667);
+    will-change: transform;
   }
 
   a {

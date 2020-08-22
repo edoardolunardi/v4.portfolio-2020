@@ -33,6 +33,7 @@ const Title = styled.h2`
   color: ${props => props.theme.colors.white};
   z-index: 10;
   line-height: 0.7;
+  will-change: transform;
   ${props =>
     props.left
       ? css`
