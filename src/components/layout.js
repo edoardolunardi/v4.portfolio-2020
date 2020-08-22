@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 // import useMediaQuery from "../hooks/useMediaQuery"
 import useBrowserDetect from "../hooks/useBrowserDetect"
+import Header from "../components/header"
 import Scroll from "../components/scroll"
 // import Loader from "../components/loader"
 import ChangeBrowser from "../components/changeBrowser"
@@ -14,34 +15,6 @@ const Main = styled.main`
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-`
-
-const Year = styled.span`
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: ${props => props.theme.fontSizes.small};
-  padding-top: ${props => props.theme.paddings.content};
-  padding-left: ${props => props.theme.paddings.content};
-
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
-    font-size: ${props => props.theme.fontSizes.base};
-  }
-`
-
-const Name = styled.h2`
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: ${props => props.theme.fontSizes.small};
-  padding-top: ${props => props.theme.paddings.content};
-  padding-right: ${props => props.theme.paddings.content};
-
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
-    font-size: ${props => props.theme.fontSizes.base};
-  }
 `
 
 const variants = {
@@ -73,8 +46,7 @@ const Layout = ({ children, location }) => {
       >
         <Scroll location={location} />
         <Main>
-          <Year>2020</Year>
-          <Name>Edoardo Lunardi</Name>
+          <Header location={location.pathname} />
           {children}
         </Main>
       </motion.div>
