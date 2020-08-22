@@ -5,34 +5,6 @@ import SEO from "../components/seo"
 import Spanify from "../components/spanify"
 import ProjectPreview from "../components/projectPreview"
 
-const Year = styled.span`
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: ${props => props.theme.fontSizes.small};
-  padding-top: ${props => props.theme.paddings.content};
-  padding-left: ${props => props.theme.paddings.content};
-
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
-    font-size: ${props => props.theme.fontSizes.base};
-  }
-`
-
-const Name = styled.h2`
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: ${props => props.theme.fontSizes.small};
-  padding-top: ${props => props.theme.paddings.content};
-  padding-right: ${props => props.theme.paddings.content};
-
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
-    font-size: ${props => props.theme.fontSizes.base};
-  }
-`
-
 const Title = styled.h1`
   user-select: none;
   margin-left: -0.5vw;
@@ -110,8 +82,6 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <Year>2020</Year>
-      <Name>Edoardo Lunardi</Name>
       <Title>
         <TitleBlock className="animation-stagger">
           <Spanify text="Front" isAnimation />

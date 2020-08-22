@@ -1,5 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+
+import SEO from "../../components/seo"
 import Spanify from "../../components/spanify"
 import ProjectPreview from "../../components/projectPreview"
 
@@ -19,8 +21,9 @@ const Title = styled.h1`
 const DiegoPage = () => {
   return (
     <>
+      <SEO title="Diego Ravier" />
       <Title className="animation-stagger">
-        <Spanify text="Diego" isAnimation />
+        <Spanify text="Diego Ravier" isAnimation />
       </Title>
       <ProjectPreview title="diego" inProject />
     </>

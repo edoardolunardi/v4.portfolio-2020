@@ -24,6 +24,23 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
+  @keyframes scale {
+      from {
+          transform: scale(1.3);
+      }
+      to{
+          transform: scale(1.66667)
+      }
+  }
+
+  ${props =>
+    props.animateScale &&
+    css`
+      .project-image {
+        animation: scale 1s ${props.theme.transitions.bezier};
+      }
+    `}
+
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
     height: 50vh;
   }
@@ -60,7 +77,9 @@ const ProjectPreview = ({ title, left, inProject }) => {
   }
 
   return inProject ? (
-    <Container data-scroll>{map[title]}</Container>
+    <Container data-scroll animateScale>
+      {map[title]}
+    </Container>
   ) : (
     <StyledLink to={`/project/${title}`}>
       <Container data-scroll>
