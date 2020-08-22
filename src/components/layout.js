@@ -33,7 +33,7 @@ const Layout = ({ children, location }) => {
   const { isValidBrowser } = useBrowserDetect()
   const [showLoader, setShowLoader] = useState(true)
 
-  return (
+  return isValidBrowser ? (
     <AnimatePresence exitBeforeEnter initial={false}>
       <motion.div
         key={location.pathname}
@@ -47,6 +47,8 @@ const Layout = ({ children, location }) => {
         <Main>{children}</Main>
       </motion.div>
     </AnimatePresence>
+  ) : (
+    <ChangeBrowser />
   )
 
   //   return isValidBrowser ? (
