@@ -34,19 +34,20 @@ const Title = styled.h2`
   font-size: ${props => props.theme.fontSizes.big};
   position: absolute;
   bottom: 0;
-  margin-right: -0.3vw;
+  margin-bottom: -0.3vw;
   color: ${props => props.theme.colors.white};
   z-index: 10;
-  line-height: 0.7;
+  line-height: 1;
   will-change: transform;
   ${props =>
     props.left
       ? css`
           left: 0;
-          margin-left: -0.5vw;
+          margin-left: 0.7vw;
         `
       : css`
           right: 0;
+          margin-right: 0.7vw;
         `}
 `
 

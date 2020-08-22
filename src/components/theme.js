@@ -12,7 +12,7 @@ const theme = {
   colors: {
     isabelline: "#F6F5F1",
     white: "#FFFFFF",
-    black: "#000000",
+    black: "#1e1e1e",
     accent: "#AC3838",
   },
 
