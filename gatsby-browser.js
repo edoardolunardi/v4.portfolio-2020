@@ -3,9 +3,9 @@ import Theme from "./src/components/theme"
 import Layout from "./src/components/layout"
 import GlobalStyles from "./src/styles/Global"
 
-export const wrapPageElement = ({ element }) => (
+export const wrapPageElement = ({ element, props }) => (
   <Theme>
     <GlobalStyles />
-    <Layout>{element}</Layout>
+    <Layout {...props}>{element}</Layout>
   </Theme>
 )
