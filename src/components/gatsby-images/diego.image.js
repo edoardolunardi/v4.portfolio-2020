@@ -18,6 +18,7 @@ const Diego = () => {
   return (
     <Img
       fluid={data.placeholderImage.childImageSharp.fluid}
+      draggable={false}
       className="project-image"
     />
   )

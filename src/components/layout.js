@@ -15,8 +15,9 @@ const Main = styled.main`
   padding: ${props => props.theme.paddings.content};
   background-color: ${props => props.theme.colors.isabelline};
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
 `
 
 const variants = {
@@ -51,7 +52,7 @@ const Layout = ({ children, location }) => {
         {/* Lazy load videos */}
         <LazyVideo location={location} />
         {!isMobile && <Cursor />}
-        <Main className="scroll-content">
+        <Main data-scroll-container>
           <Header location={location.pathname} />
           {children}
         </Main>
