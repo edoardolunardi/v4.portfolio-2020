@@ -12,6 +12,7 @@ import ProjectPreview from "../../components/projectPreview"
 
 // Media
 import homeVideo from "../../projects-media/diego/home.mp4"
+import menuVideo from "../../projects-media/diego/menu.mp4"
 
 const DiegoPage = () => {
   return (
@@ -24,6 +25,11 @@ const DiegoPage = () => {
       <VideoContainer>
         <VideoWrapper>
           <Video src={homeVideo} />
+        </VideoWrapper>
+      </VideoContainer>
+      <VideoContainer>
+        <VideoWrapper>
+          <Video src={menuVideo} />
         </VideoWrapper>
       </VideoContainer>
     </>

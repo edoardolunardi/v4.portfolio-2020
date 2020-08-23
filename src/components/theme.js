@@ -14,6 +14,7 @@ const theme = {
     white: "#FFFFFF",
     black: "#1e1e1e",
     accent: "#AC3838",
+    grey: "#CCCCCC",
   },
 
   transitions: {
