@@ -19,8 +19,8 @@ const Pointer = styled.div`
   z-index: 100;
   width: 40px;
   height: 40px;
-  background-color: red;
-  opacity: 0.1;
+  background-color: ${props => props.theme.colors.accent};
+  opacity: 0.5;
   border-radius: 50%;
   mix-blend-mode: multiply;
 `

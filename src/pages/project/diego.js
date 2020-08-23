@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import Title from "../../components/ui/title"
 
 import SEO from "../../components/seo"

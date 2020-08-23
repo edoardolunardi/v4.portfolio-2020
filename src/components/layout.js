@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
-// import useMediaQuery from "../hooks/useMediaQuery"
+import useMediaQuery from "../hooks/useMediaQuery"
 import useBrowserDetect from "../hooks/useBrowserDetect"
 import Header from "../components/header"
 import Scroll from "../components/scroll"
+import Cursor from "../components/cursor"
 // import Loader from "../components/loader"
 import ChangeBrowser from "../components/changeBrowser"
 
@@ -30,7 +31,7 @@ const variants = {
 }
 
 const Layout = ({ children, location }) => {
-  //   const isMobile = useMediaQuery("md")
+  const isMobile = useMediaQuery("md")
   const { isValidBrowser } = useBrowserDetect()
   //   const [showLoader, setShowLoader] = useState(true)
 
@@ -45,7 +46,8 @@ const Layout = ({ children, location }) => {
         exit="exit"
       >
         <Scroll location={location} />
-        <Main>
+        {!isMobile && <Cursor />}
+        <Main className="scroll-content">
           <Header location={location.pathname} />
           {children}
         </Main>

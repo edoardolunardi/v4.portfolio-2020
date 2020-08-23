@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import LocomotiveScroll from "locomotive-scroll"
 
-const container = "#___gatsby"
+const container = ".scroll-content"
 
 const Scroll = callbacks => {
   useEffect(() => {
