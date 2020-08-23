@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import Spanify from "../components/spanify"
@@ -9,6 +9,15 @@ import Emerge from "./gatsby-images/emerge.image"
 import Bitboss from "./gatsby-images/bitboss.image"
 import I3p from "./gatsby-images/i3p.image"
 
+const scale = keyframes`
+  from {
+    transform: scale(1.3);
+  }
+
+  to {
+    transform: scale(1.66667)
+  }
+`
 const StyledLink = styled(Link)`
   margin-bottom: 4vw;
   display: block;
@@ -24,20 +33,11 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
-  @keyframes scale {
-      from {
-          transform: scale(1.3);
-      }
-      to {
-          transform: scale(1.66667)
-      }
-  }
-
   ${props =>
     props.animateScale &&
     css`
       .project-image {
-        animation: scale 1s ${props.theme.transitions.bezier};
+        animation: ${scale} 1s ${props.theme.transitions.bezier};
       }
     `}
 

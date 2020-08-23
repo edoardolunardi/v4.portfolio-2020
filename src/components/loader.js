@@ -1,6 +1,17 @@
-import React from "react"
-import styled from "styled-components"
+import React, { useContext, useEffect } from "react"
+import styled, { keyframes } from "styled-components"
+import Context from "./context"
 import Spanify from "./spanify"
+
+const exit = keyframes`
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -200vh, 0);
+  }
+`
 
 const Container = styled.div`
   width: 100vw;
@@ -9,6 +20,10 @@ const Container = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 100;
+  animation: ${exit} 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 2s;
 `
 
 const Panel1 = styled.div`
@@ -32,6 +47,14 @@ const Intro = styled.span`
 `
 
 const Loader = () => {
+  const { setFirstOpen } = useContext(Context)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFirstOpen(false)
+    }, 4000)
+  }, [setFirstOpen])
+
   return (
     <Container>
       <Panel1>

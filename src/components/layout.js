@@ -1,14 +1,15 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 import useMediaQuery from "../hooks/useMediaQuery"
 import useBrowserDetect from "../hooks/useBrowserDetect"
+import Context from "../components/context"
 import Header from "../components/header"
 import Scroll from "../components/scroll"
 import LazyVideo from "../components/lazyVideo"
 import Cursor from "../components/cursor"
-// import Loader from "../components/loader"
+import Loader from "../components/loader"
 import ChangeBrowser from "../components/changeBrowser"
 
 const Main = styled.main`
@@ -33,29 +34,32 @@ const variants = {
 const Layout = ({ children, location }) => {
   const isMobile = useMediaQuery("md")
   const { isValidBrowser } = useBrowserDetect()
-  //   const [showLoader, setShowLoader] = useState(true)
+  const { firstOpen } = useContext(Context)
 
   return isValidBrowser ? (
-    <AnimatePresence exitBeforeEnter initial={false}>
-      <motion.div
-        key={location.pathname}
-        transition={{ duration: 0.3 }}
-        variants={variants}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-      >
-        {/* Handles scroll animations */}
-        <Scroll location={location} isMobile={isMobile} />
-        {/* Lazy load videos */}
-        <LazyVideo location={location} />
-        {!isMobile && <Cursor />}
-        <Main data-scroll-container>
-          <Header location={location.pathname} />
-          {children}
-        </Main>
-      </motion.div>
-    </AnimatePresence>
+    <>
+      {firstOpen && <Loader />}
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <motion.div
+          key={location.pathname}
+          transition={{ duration: 0.3 }}
+          variants={variants}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+        >
+          {/* Handles scroll animations */}
+          <Scroll location={location} isMobile={isMobile} />
+          {/* Lazy load videos */}
+          <LazyVideo location={location} />
+          {!isMobile && <Cursor />}
+          <Main data-scroll-container>
+            <Header location={location.pathname} />
+            {children}
+          </Main>
+        </motion.div>
+      </AnimatePresence>
+    </>
   ) : (
     <ChangeBrowser />
   )
@@ -63,15 +67,15 @@ const Layout = ({ children, location }) => {
   //   return isValidBrowser ? (
   //     <AnimatePresence exitBeforeEnter>
   //       {showLoader ? (
-  //         <motion.div
-  //           key="loader"
-  //           transition={{ duration: 1.3, delay: 0.5 }}
-  //           animate={{ y: 0 }}
-  //           exit={{ y: "-200vh" }}
-  //           onAnimationComplete={() => setShowLoader(false)}
-  //         >
-  //           <Loader />
-  //         </motion.div>
+  //   <motion.div
+  //     key="loader"
+  //     transition={{ duration: 1.3, delay: 0.5 }}
+  //     animate={{ y: 0 }}
+  //     exit={{ y: "-200vh" }}
+  //     onAnimationComplete={() => setShowLoader(false)}
+  //   >
+  //     <Loader />
+  //   </motion.div>
   //       ) : (
   //         <motion.div
   //           key="content"
