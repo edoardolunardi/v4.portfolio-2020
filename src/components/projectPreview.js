@@ -28,7 +28,7 @@ const Container = styled.div`
       from {
           transform: scale(1.3);
       }
-      to{
+      to {
           transform: scale(1.66667)
       }
   }
