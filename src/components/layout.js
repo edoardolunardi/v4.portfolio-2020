@@ -6,6 +6,7 @@ import useMediaQuery from "../hooks/useMediaQuery"
 import useBrowserDetect from "../hooks/useBrowserDetect"
 import Header from "../components/header"
 import Scroll from "../components/scroll"
+import LazyVideo from "../components/lazyVideo"
 import Cursor from "../components/cursor"
 // import Loader from "../components/loader"
 import ChangeBrowser from "../components/changeBrowser"
@@ -45,7 +46,10 @@ const Layout = ({ children, location }) => {
         animate="enter"
         exit="exit"
       >
+        {/* Handles scroll animations */}
         <Scroll location={location} />
+        {/* Lazy load videos */}
+        <LazyVideo location={location} />
         {!isMobile && <Cursor />}
         <Main className="scroll-content">
           <Header location={location.pathname} />

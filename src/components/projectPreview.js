@@ -4,10 +4,10 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import Spanify from "../components/spanify"
 
-import Diego from "./project-image/diego.image"
-import Emerge from "./project-image/emerge.image"
-import Bitboss from "./project-image/bitboss.image"
-import I3p from "./project-image/i3p.image"
+import Diego from "./gatsby-images/diego.image"
+import Emerge from "./gatsby-images/emerge.image"
+import Bitboss from "./gatsby-images/bitboss.image"
+import I3p from "./gatsby-images/i3p.image"
 
 const StyledLink = styled(Link)`
   margin-bottom: 4vw;
