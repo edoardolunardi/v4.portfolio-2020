@@ -26,13 +26,8 @@ const Scroll = callbacks => {
     // get project images to animate
     const images = document.querySelectorAll(".project-image")
 
-    // get staggers
-    const staggers = document.querySelectorAll(".transition-stagger")
-
     setTimeout(() => {
       locomotiveScroll.update()
-      // Exposing to the global scope for ease of use.
-      window.scroll = locomotiveScroll
 
       locomotiveScroll.on("scroll", data => {
         const { y } = data.scroll
@@ -44,14 +39,8 @@ const Scroll = callbacks => {
         images.forEach(image => {
           setTransform(image, `scale(${scale})`)
         })
-
-        // animate staggers
-        staggers.forEach(stagger => {
-          const active = stagger.classList.contains("is-inview")
-          if (active) stagger.classList.add("visible")
-        })
       })
-    }, 400)
+    }, 500)
 
     return () => {
       if (locomotiveScroll) locomotiveScroll.destroy()

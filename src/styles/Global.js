@@ -150,7 +150,7 @@ export default createGlobalStyle`
     }
   }
 
-  .transition-stagger.visible > span {
+  .transition-stagger.is-inview > span {
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
