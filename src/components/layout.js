@@ -15,9 +15,7 @@ const Main = styled.main`
   padding: ${props => props.theme.paddings.content};
   background-color: ${props => props.theme.colors.isabelline};
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
-  overflow: auto;
 `
 
 const variants = {

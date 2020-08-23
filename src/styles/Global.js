@@ -89,7 +89,6 @@ export default createGlobalStyle`
     background-color: ${props => props.theme.colors.black};
     color: ${props => props.theme.colors.black};
     height: 100%;
-    overflow: hidden;
   }
 
   #___gatsby:after {
