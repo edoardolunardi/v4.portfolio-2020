@@ -8,10 +8,9 @@ const Scroll = callbacks => {
     const locomotiveScroll = new LocomotiveScroll({
       el: document.querySelector(container),
       smooth: true,
-      smoothMobile: true,
+      smoothMobile: false,
       touchMultiplier: 2.5,
       lerp: 0.07,
-      scrollFromAnywhere: true,
     })
 
     const clamp = (val, max, min) => {
