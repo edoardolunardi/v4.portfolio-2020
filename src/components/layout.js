@@ -51,7 +51,7 @@ const Layout = ({ children, location }) => {
         {/* Lazy load videos */}
         <LazyVideo location={location} />
         {!isMobile && <Cursor />}
-        <Main data-scroll-container className="scroll-content">
+        <Main className="scroll-content">
           <Header location={location.pathname} />
           {children}
         </Main>
