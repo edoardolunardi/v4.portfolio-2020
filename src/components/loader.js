@@ -47,13 +47,13 @@ const Intro = styled.span`
 `
 
 const Loader = () => {
-  const { setFirstOpen } = useContext(Context)
+  const { setShowLoader } = useContext(Context)
 
   useEffect(() => {
     setTimeout(() => {
-      setFirstOpen(false)
+      setShowLoader(false)
     }, 4000)
-  }, [setFirstOpen])
+  }, [setShowLoader])
 
   return (
     <Container>

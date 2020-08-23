@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import useMediaQuery from "../hooks/useMediaQuery"
 import useBrowserDetect from "../hooks/useBrowserDetect"
 import Context from "../components/context"
@@ -12,12 +12,14 @@ import Cursor from "../components/cursor"
 import Loader from "../components/loader"
 import ChangeBrowser from "../components/changeBrowser"
 
-const Main = styled.main`
+const Container = styled.div`
   padding: ${props => props.theme.paddings.content};
   background-color: ${props => props.theme.colors.isabelline};
   width: 100%;
   box-sizing: border-box;
 `
+
+const Main = styled.main``
 
 const variants = {
   initial: {
@@ -34,11 +36,11 @@ const variants = {
 const Layout = ({ children, location }) => {
   const isMobile = useMediaQuery("md")
   const { isValidBrowser } = useBrowserDetect()
-  const { firstOpen } = useContext(Context)
+  const { showLoader } = useContext(Context)
 
   return isValidBrowser ? (
     <>
-      {firstOpen && <Loader />}
+      {showLoader && <Loader />}
       <AnimatePresence exitBeforeEnter initial={false}>
         <motion.div
           key={location.pathname}
@@ -53,10 +55,10 @@ const Layout = ({ children, location }) => {
           {/* Lazy load videos */}
           <LazyVideo location={location} />
           {!isMobile && <Cursor />}
-          <Main data-scroll-container>
+          <Container data-scroll-container>
             <Header location={location.pathname} />
-            {children}
-          </Main>
+            <Main>{children}</Main>
+          </Container>
         </motion.div>
       </AnimatePresence>
     </>
