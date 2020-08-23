@@ -46,7 +46,7 @@ const Layout = ({ children, location }) => {
         exit="exit"
       >
         {/* Handles scroll animations */}
-        <Scroll location={location} />
+        <Scroll location={location} isMobile={isMobile} />
         {/* Lazy load videos */}
         <LazyVideo location={location} />
         {!isMobile && <Cursor />}

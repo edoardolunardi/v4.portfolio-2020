@@ -78,9 +78,7 @@ export default createGlobalStyle`
     font-family: FG, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
     height: 100%;
-    overscroll-behavior-y: none;
   }
 
   body {
@@ -88,7 +86,6 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     background-color: ${props => props.theme.colors.black};
     color: ${props => props.theme.colors.black};
-    height: 100%;
   }
 
   #___gatsby:after {
