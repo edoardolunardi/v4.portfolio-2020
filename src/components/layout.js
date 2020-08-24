@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react"
+import React, { useContext, useRef, useEffect } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
@@ -49,6 +49,7 @@ const Layout = ({ children, location }) => {
           initial="initial"
           animate="enter"
           exit="exit"
+          onAnimationComplete={() => window.scrollTo(0, 0)}
         >
           {/* Handles scroll animations */}
           <Scroll
@@ -67,34 +68,6 @@ const Layout = ({ children, location }) => {
   ) : (
     <ChangeBrowser />
   )
-
-  //   return isValidBrowser ? (
-  //     <AnimatePresence exitBeforeEnter>
-  //       {showLoader ? (
-  //   <motion.div
-  //     key="loader"
-  //     transition={{ duration: 1.3, delay: 0.5 }}
-  //     animate={{ y: 0 }}
-  //     exit={{ y: "-200vh" }}
-  //     onAnimationComplete={() => setShowLoader(false)}
-  //   >
-  //     <Loader />
-  //   </motion.div>
-  //       ) : (
-  //         <motion.div
-  //           key="content"
-  //           transition={{ duration: 0.8 }}
-  //           initial={{ opacity: 0, y: 50 }}
-  //           animate={{ opacity: 1, y: 0 }}
-  //         >
-  //           <Scroll location={location} />
-  //           <Main>{children}</Main>
-  //         </motion.div>
-  //       )}
-  //     </AnimatePresence>
-  //   ) : (
-  //     <ChangeBrowser />
-  //   )
 }
 
 Layout.propTypes = {

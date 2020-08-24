@@ -13,6 +13,4 @@ export const wrapPageElement = ({ element, props }) => (
   </AppProvider>
 )
 
-export const onInitialClientRender = () => {
-  window.___GATSBYGRAM_INITIAL_RENDER_COMPLETE = true
-}
+export const shouldUpdateScroll = () => false
