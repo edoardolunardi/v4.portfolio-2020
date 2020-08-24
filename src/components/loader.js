@@ -3,6 +3,9 @@ import styled, { keyframes } from "styled-components"
 import Context from "./context"
 import Spanify from "./spanify"
 
+const duration = 1800
+const delay = 2000
+
 const exit = keyframes`
   from {
     transform: translate3d(0, 0, 0);
@@ -21,9 +24,10 @@ const Container = styled.div`
   right: 0;
   bottom: 0;
   z-index: 100;
-  animation: ${exit} 2s ease-in-out;
+  animation: ${exit} ${duration}ms
+    ${props => props.theme.transitions.bezierLoading};
   animation-fill-mode: both;
-  animation-delay: 2s;
+  animation-delay: ${delay}ms;
 `
 
 const Panel1 = styled.div`
@@ -52,7 +56,7 @@ const Loader = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowLoader(false)
-    }, 4000)
+    }, duration + delay)
   }, [setShowLoader])
 
   return (

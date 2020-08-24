@@ -18,7 +18,8 @@ const theme = {
   },
 
   transitions: {
-    bezier: "cubic-bezier(0.15, 0.85, 0.45, 1);",
+    bezierStagger: "cubic-bezier(0.15, 0.85, 0.45, 1);",
+    bezierLoading: "cubic-bezier(0.76, 0, 0.24, 1);",
   },
 
   fontSizes: {

@@ -171,7 +171,7 @@ export default createGlobalStyle`
     overflow: hidden;
     > span {
       animation-name: animate-stagger;
-      animation-duration: 1s;
+      animation-duration: 550ms;
       animation-timing-function: ${props => props.theme.transitions.bezier};
       animation-fill-mode: both;
     }
@@ -179,7 +179,7 @@ export default createGlobalStyle`
 
   .animation-reveal {
     animation-name: animate-stagger;
-    animation-duration: 1s;
+    animation-duration: 550ms;
     animation-timing-function: ${props => props.theme.transitions.bezier};
     animation-fill-mode: both;
   }

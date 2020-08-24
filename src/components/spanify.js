@@ -22,7 +22,7 @@ const Spanify = ({ text, lines, hasAnimation }) => {
         {letters.map((letter, i) => (
           <Span
             key={i}
-            delay={i * 70}
+            delay={i * 55}
             hasAnimation={hasAnimation}
             className="stagger"
           >
