@@ -1,39 +1,43 @@
-import { useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
-const LazyVideo = callbacks => {
+const LazyVideo = ({ src }) => {
+  const [videoSrc, setVideoSrc] = useState(null)
+  const videoRef = useRef(null)
+
   useEffect(() => {
-    const videos = document.querySelectorAll("video.lazy")
+    const video = videoRef.current
+    let observer
     if ("IntersectionObserver" in window) {
-      const lazyVideoObserver = new IntersectionObserver(function (
-        entries,
-        observer
-      ) {
-        entries.forEach(video => {
-          if (video.isIntersecting) {
-            for (const source in video.target.children) {
-              const videoSource = video.target.children[source]
-              if (
-                typeof videoSource.tagName === "string" &&
-                videoSource.tagName === "SOURCE"
-              ) {
-                videoSource.src = videoSource.dataset.src
-              }
-            }
-
-            video.target.load()
-            video.target.classList.remove("lazy")
-            lazyVideoObserver.unobserve(video.target)
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.intersectionRatio > 0 || entry.isIntersecting) {
+            setVideoSrc(src)
           }
         })
       })
-
-      videos.forEach(video => {
-        lazyVideoObserver.observe(video)
-      })
+      observer.observe(video)
+    } else {
+      setVideoSrc(src)
     }
-  }, [callbacks])
 
-  return null
+    return () => {
+      if (observer && observer.unobserve) {
+        observer.unobserve(video)
+      }
+    }
+  }, [src])
+
+  useEffect(() => {
+    if (videoSrc) {
+      videoRef.current.load()
+    }
+  }, [videoSrc])
+
+  return (
+    <video autoPlay muted loop playsInline ref={videoRef}>
+      <source src={videoSrc} type="video/mp4"></source>
+    </video>
+  )
 }
 
 export default LazyVideo

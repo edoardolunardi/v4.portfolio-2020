@@ -7,7 +7,6 @@ import useBrowserDetect from "../hooks/useBrowserDetect"
 import Context from "../components/context"
 import Header from "../components/header"
 import Scroll from "../components/scroll"
-import LazyVideo from "../components/lazyVideo"
 import Cursor from "../components/cursor"
 import Loader from "../components/loader"
 import ChangeBrowser from "../components/changeBrowser"
@@ -52,8 +51,6 @@ const Layout = ({ children, location }) => {
         >
           {/* Handles scroll animations */}
           <Scroll location={location} isMobile={isMobile} />
-          {/* Lazy load videos */}
-          <LazyVideo location={location} />
           {!isMobile && <Cursor />}
           <Container data-scroll-container>
             <Header location={location.pathname} />

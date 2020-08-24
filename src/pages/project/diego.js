@@ -6,7 +6,7 @@ import {
   VideoContainer,
   VideoWrapper,
 } from "../../components/ui"
-import Video from "../../components/video"
+import LazyVideo from "../../components/lazyVideo"
 
 import SEO from "../../components/seo"
 import Spanify from "../../components/spanify"
@@ -32,32 +32,32 @@ const DiegoPage = () => {
         <ProjectPreview title="diego" inProject />
         <VideoContainer>
           <VideoWrapper>
-            <Video src={homeVideo} />
+            <LazyVideo src={homeVideo} />
           </VideoWrapper>
         </VideoContainer>
         <VideoContainer>
           <VideoWrapper>
-            <Video src={menuVideo} />
+            <LazyVideo src={menuVideo} />
           </VideoWrapper>
         </VideoContainer>
         <VideoContainer>
           <VideoWrapper>
-            <Video src={gallery} />
+            <LazyVideo src={gallery} />
           </VideoWrapper>
         </VideoContainer>
         <VideoContainer>
           <VideoWrapper>
-            <Video src={gallery2} />
+            <LazyVideo src={gallery2} />
           </VideoWrapper>
         </VideoContainer>
         <VideoContainer>
           <VideoWrapper>
-            <Video src={gallery3} />
+            <LazyVideo src={gallery3} />
           </VideoWrapper>
         </VideoContainer>
         <VideoContainer>
           <VideoWrapper>
-            <Video src={gallery4} />
+            <LazyVideo src={gallery4} />
           </VideoWrapper>
         </VideoContainer>
       </ContentReveal>
