@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useRef } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
 import styled, { css } from "styled-components"
@@ -36,6 +36,7 @@ const Layout = ({ children, location }) => {
   const isMobile = useMediaQuery("md")
   const { isValidBrowser } = useBrowserDetect()
   const { showLoader } = useContext(Context)
+  const scrollContentRef = useRef(null)
 
   return isValidBrowser ? (
     <>
@@ -50,9 +51,13 @@ const Layout = ({ children, location }) => {
           exit="exit"
         >
           {/* Handles scroll animations */}
-          <Scroll location={location} isMobile={isMobile} />
+          <Scroll
+            location={location}
+            isMobile={isMobile}
+            container={scrollContentRef}
+          />
           {!isMobile && <Cursor />}
-          <Container data-scroll-container>
+          <Container ref={scrollContentRef}>
             <Header location={location.pathname} />
             <Main>{children}</Main>
           </Container>

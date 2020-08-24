@@ -1,12 +1,10 @@
 import { useEffect } from "react"
 import LocomotiveScroll from "locomotive-scroll"
 
-const container = "[data-scroll-container]"
-
-const Scroll = ({ location, isMobile }) => {
+const Scroll = ({ location, isMobile, container }) => {
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll({
-      el: document.querySelector(container),
+      el: container.current,
       smooth: !isMobile,
       lerp: 0.07,
     })
@@ -26,7 +24,7 @@ const Scroll = ({ location, isMobile }) => {
     setTimeout(() => {
       locomotiveScroll.update()
 
-      const mobileLimit = document.querySelector(container).scrollHeight
+      const mobileLimit = container.current.scrollHeight
 
       locomotiveScroll.on("scroll", data => {
         const { y } = data.scroll
