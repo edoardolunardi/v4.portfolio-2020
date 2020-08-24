@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import useMediaQuery from "../hooks/useMediaQuery"
 import useBrowserDetect from "../hooks/useBrowserDetect"
 import Context from "../components/context"

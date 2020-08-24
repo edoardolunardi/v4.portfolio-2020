@@ -10,22 +10,23 @@ const LazyVideo = ({ src }) => {
   const [videoSrc, setVideoSrc] = useState(null)
   const videoRef = useRef(null)
 
-  const options = {
-    rootMargin: "0px",
-    threshold: 0.3,
-  }
-
   useEffect(() => {
     const video = videoRef.current
     let observer
     if ("IntersectionObserver" in window) {
-      observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.intersectionRatio > 0.3 || entry.isIntersecting) {
-            setVideoSrc(src)
-          }
-        })
-      }, options)
+      observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.intersectionRatio > 0.3 || entry.isIntersecting) {
+              setVideoSrc(src)
+            }
+          })
+        },
+        {
+          rootMargin: "0px",
+          threshold: 0.3,
+        }
+      )
       observer.observe(video)
     } else {
       setVideoSrc(src)

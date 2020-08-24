@@ -45,7 +45,7 @@ const Scroll = ({ location, isMobile, container }) => {
     return () => {
       if (locomotiveScroll) locomotiveScroll.destroy()
     }
-  }, [location, isMobile])
+  }, [location, isMobile, container])
 
   return null
 }
