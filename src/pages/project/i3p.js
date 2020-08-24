@@ -1,18 +1,22 @@
-import React from "react"
-import Title from "../../components/ui/title"
+import React, { useContext } from "react"
+import Context from "../../components/context"
+import { Title, ContentReveal } from "../../components/ui"
 
 import SEO from "../../components/seo"
 import Spanify from "../../components/spanify"
 import ProjectPreview from "../../components/projectPreview"
 
 const I3p = () => {
+  const { showLoader } = useContext(Context)
   return (
     <>
       <SEO title="I3p" />
-      <Title className="animation-stagger">
-        <Spanify text="I3p" isAnimation />
+      <Title className={`${!showLoader && "animation-stagger"}`}>
+        <Spanify text="I3p" hasAnimation />
       </Title>
-      <ProjectPreview title="i3p" inProject />
+      <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
+        <ProjectPreview title="i3p" inProject />
+      </ContentReveal>
     </>
   )
 }

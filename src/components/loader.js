@@ -59,7 +59,7 @@ const Loader = () => {
     <Container>
       <Panel1>
         <Intro className="animation-stagger">
-          <Spanify text="Keep grinding" isAnimation />
+          <Spanify text="Keep grinding" hasAnimation />
         </Intro>
       </Panel1>
       <Panel2 />

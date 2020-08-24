@@ -5,7 +5,7 @@ import styled, { css } from "styled-components"
 const Span = styled.span`
   display: inline-block;
   ${props =>
-    props.isAnimation
+    props.hasAnimation
       ? css`
           animation-delay: ${props.delay}ms;
         `
@@ -14,7 +14,7 @@ const Span = styled.span`
         `}
 `
 
-const Spanify = ({ text, lines, isAnimation }) => {
+const Spanify = ({ text, lines, hasAnimation }) => {
   if (text) {
     const letters = text.split("")
     return (
@@ -23,7 +23,7 @@ const Spanify = ({ text, lines, isAnimation }) => {
           <Span
             key={i}
             delay={i * 70}
-            isAnimation={isAnimation}
+            hasAnimation={hasAnimation}
             className="stagger"
           >
             {letter === " " ? "\u00A0" : letter}
@@ -51,7 +51,7 @@ const Spanify = ({ text, lines, isAnimation }) => {
 Spanify.propTypes = {
   text: PropTypes.string,
   lines: PropTypes.array,
-  isAnimation: PropTypes.bool,
+  hasAnimation: PropTypes.bool,
 }
 
 export default Spanify

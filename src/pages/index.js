@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled, { css } from "styled-components"
-import Title from "../components/ui/title"
+import Context from "../components/context"
+import { Title, ContentReveal } from "../components/ui"
 
 import SEO from "../components/seo"
 import Spanify from "../components/spanify"
@@ -66,25 +67,31 @@ const Copy = styled.span`
 
 const IndexPage = () => {
   const projects = ["diego", "emerge", "bitboss", "i3p"]
+  const { showLoader } = useContext(Context)
 
   return (
     <>
       <SEO title="Home" />
       <Title>
-        <TitleBlock className="animation-stagger">
-          <Spanify text="Front" isAnimation />
+        <TitleBlock className={`${!showLoader && "animation-stagger"}`}>
+          <Spanify text="Front" hasAnimation />
         </TitleBlock>
-        <TitleBlock hasAccent className="animation-stagger">
-          <Spanify text="End developer" isAnimation />
+        <TitleBlock
+          hasAccent
+          className={`${!showLoader && "animation-stagger"}`}
+        >
+          <Spanify text="End developer" hasAnimation />
         </TitleBlock>
       </Title>
-      {projects.map((project, i) => (
-        <ProjectPreview
-          title={project}
-          left={i % 2 !== 0}
-          key={`project-${i}`}
-        />
-      ))}
+      <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
+        {projects.map((project, i) => (
+          <ProjectPreview
+            title={project}
+            left={i % 2 !== 0}
+            key={`project-${i}`}
+          />
+        ))}
+      </ContentReveal>
       <About>
         <AboutContent
           data-scroll

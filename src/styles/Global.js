@@ -26,6 +26,22 @@ export default createGlobalStyle`
     }
   }
 
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px){
+    @keyframes animate-stagger {
+        from {
+          transform: translate3d(0, 50px, 0);
+          opacity: 0;
+        }
+    
+        to {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      }
+  }
+
+  
+
   @keyframes noise {
     0% {
       transform: translate3d(0, 9rem, 0);
@@ -159,5 +175,12 @@ export default createGlobalStyle`
       animation-timing-function: ${props => props.theme.transitions.bezier};
       animation-fill-mode: both;
     }
+  }
+
+  .animation-reveal {
+    animation-name: animate-stagger;
+    animation-duration: 1s;
+    animation-timing-function: ${props => props.theme.transitions.bezier};
+    animation-fill-mode: both;
   }
 `

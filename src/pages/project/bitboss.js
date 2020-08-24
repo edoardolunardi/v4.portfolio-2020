@@ -1,18 +1,22 @@
-import React from "react"
-import Title from "../../components/ui/title"
+import React, { useContext } from "react"
+import Context from "../../components/context"
+import { Title, ContentReveal } from "../../components/ui"
 
 import SEO from "../../components/seo"
 import Spanify from "../../components/spanify"
 import ProjectPreview from "../../components/projectPreview"
 
 const BitbossPage = () => {
+  const { showLoader } = useContext(Context)
   return (
     <>
       <SEO title="Bitboss" />
-      <Title className="animation-stagger">
-        <Spanify text="Bitboss" isAnimation />
+      <Title className={`${!showLoader && "animation-stagger"}`}>
+        <Spanify text="Bitboss" hasAnimation />
       </Title>
-      <ProjectPreview title="bitboss" inProject />
+      <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
+        <ProjectPreview title="bitboss" inProject />
+      </ContentReveal>
     </>
   )
 }

@@ -1,9 +1,11 @@
-import React from "react"
-import Title from "../../components/ui/title"
+import React, { useContext } from "react"
+import Context from "../../components/context"
 import {
+  Title,
+  ContentReveal,
   VideoContainer,
   VideoWrapper,
-} from "../../components/ui/videoContainer"
+} from "../../components/ui"
 import Video from "../../components/video"
 
 import SEO from "../../components/seo"
@@ -19,43 +21,46 @@ import gallery3 from "../../projects-media/diego/gallery3.mp4"
 import gallery4 from "../../projects-media/diego/gallery4.mp4"
 
 const DiegoPage = () => {
+  const { showLoader } = useContext(Context)
   return (
     <>
       <SEO title="Diego Ravier" />
-      <Title className="animation-stagger">
-        <Spanify text="Diego Ravier" isAnimation />
+      <Title className={`${!showLoader && "animation-stagger"}`}>
+        <Spanify text="Diego Ravier" hasAnimation />
       </Title>
-      <ProjectPreview title="diego" inProject />
-      <VideoContainer>
-        <VideoWrapper>
-          <Video src={homeVideo} />
-        </VideoWrapper>
-      </VideoContainer>
-      <VideoContainer>
-        <VideoWrapper>
-          <Video src={menuVideo} />
-        </VideoWrapper>
-      </VideoContainer>
-      <VideoContainer>
-        <VideoWrapper>
-          <Video src={gallery} />
-        </VideoWrapper>
-      </VideoContainer>
-      <VideoContainer>
-        <VideoWrapper>
-          <Video src={gallery2} />
-        </VideoWrapper>
-      </VideoContainer>
-      <VideoContainer>
-        <VideoWrapper>
-          <Video src={gallery3} />
-        </VideoWrapper>
-      </VideoContainer>
-      <VideoContainer>
-        <VideoWrapper>
-          <Video src={gallery4} />
-        </VideoWrapper>
-      </VideoContainer>
+      <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
+        <ProjectPreview title="diego" inProject />
+        <VideoContainer>
+          <VideoWrapper>
+            <Video src={homeVideo} />
+          </VideoWrapper>
+        </VideoContainer>
+        <VideoContainer>
+          <VideoWrapper>
+            <Video src={menuVideo} />
+          </VideoWrapper>
+        </VideoContainer>
+        <VideoContainer>
+          <VideoWrapper>
+            <Video src={gallery} />
+          </VideoWrapper>
+        </VideoContainer>
+        <VideoContainer>
+          <VideoWrapper>
+            <Video src={gallery2} />
+          </VideoWrapper>
+        </VideoContainer>
+        <VideoContainer>
+          <VideoWrapper>
+            <Video src={gallery3} />
+          </VideoWrapper>
+        </VideoContainer>
+        <VideoContainer>
+          <VideoWrapper>
+            <Video src={gallery4} />
+          </VideoWrapper>
+        </VideoContainer>
+      </ContentReveal>
     </>
   )
 }
