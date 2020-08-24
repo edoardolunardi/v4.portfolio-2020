@@ -1,8 +1,19 @@
 import React, { useState, useEffect, useRef } from "react"
+import styled from "styled-components"
+
+const Video = styled.video`
+  opacity: ${props => (props.fade ? "1" : "0")};
+  transition: opacity 1s ${props => props.theme.transitions.bezier};
+`
 
 const LazyVideo = ({ src }) => {
   const [videoSrc, setVideoSrc] = useState(null)
   const videoRef = useRef(null)
+
+  const options = {
+    rootMargin: "0px",
+    threshold: 0.3,
+  }
 
   useEffect(() => {
     const video = videoRef.current
@@ -10,11 +21,11 @@ const LazyVideo = ({ src }) => {
     if ("IntersectionObserver" in window) {
       observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.intersectionRatio > 0 || entry.isIntersecting) {
+          if (entry.intersectionRatio > 0.3 || entry.isIntersecting) {
             setVideoSrc(src)
           }
         })
-      })
+      }, options)
       observer.observe(video)
     } else {
       setVideoSrc(src)
@@ -34,9 +45,9 @@ const LazyVideo = ({ src }) => {
   }, [videoSrc])
 
   return (
-    <video autoPlay muted loop playsInline ref={videoRef}>
+    <Video autoPlay muted loop playsInline ref={videoRef} fade={videoSrc}>
       <source src={videoSrc} type="video/mp4"></source>
-    </video>
+    </Video>
   )
 }
 
