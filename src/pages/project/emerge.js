@@ -11,12 +11,12 @@ const EmergePage = () => {
   return (
     <>
       <SEO title="Emerge" />
-      <Title className={`${!showLoader && "animation-stagger"}`}>
+      {/* <Title className={`${!showLoader && "animation-stagger"}`}>
         <Spanify text="Emerge" hasAnimation />
       </Title>
       <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
         <ProjectPreview title="emerge" inProject />
-      </ContentReveal>
+      </ContentReveal> */}
     </>
   )
 }

@@ -11,12 +11,12 @@ const BitbossPage = () => {
   return (
     <>
       <SEO title="Bitboss" />
-      <Title className={`${!showLoader && "animation-stagger"}`}>
+      {/* <Title className={`${!showLoader && "animation-stagger"}`}>
         <Spanify text="Bitboss" hasAnimation />
       </Title>
       <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
         <ProjectPreview title="bitboss" inProject />
-      </ContentReveal>
+      </ContentReveal> */}
     </>
   )
 }

@@ -11,12 +11,12 @@ const I3p = () => {
   return (
     <>
       <SEO title="I3p" />
-      <Title className={`${!showLoader && "animation-stagger"}`}>
+      {/* <Title className={`${!showLoader && "animation-stagger"}`}>
         <Spanify text="I3p" hasAnimation />
       </Title>
       <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
         <ProjectPreview title="i3p" inProject />
-      </ContentReveal>
+      </ContentReveal> */}
     </>
   )
 }

@@ -27,9 +27,8 @@ export const ContentReveal = styled.div`
 export const Title = styled.h1`
   user-select: none;
   margin-left: -0.5vw;
-  padding-top: 22vw;
   line-height: 0.8;
-  margin-bottom: 4vw;
+  font-weight: bold;
   font-size: ${props => props.theme.fontSizes.big};
 
   span {
@@ -39,4 +38,29 @@ export const Title = styled.h1`
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
     padding-top: 30vh;
   }
+`
+
+export const Paragraph = styled.p`
+  font-size: ${props => props.theme.fontSizes.base};
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: ${props => (props.noMarginBottom ? "0" : "2.5vw")};
+`
+
+export const Row = styled.div`
+  width: 100%;
+  display: flex;
+  margin-bottom: 8vw;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+`
+
+export const Col2 = styled.div`
+  width: 20%;
+`
+
+export const Col8 = styled.div`
+  width: 80%;
 `

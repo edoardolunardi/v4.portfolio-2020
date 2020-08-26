@@ -12,7 +12,7 @@ const theme = {
   colors: {
     isabelline: "#F6F5F1",
     white: "#FFFFFF",
-    black: "#1e1e1e",
+    black: "#1A1A21",
     accent: "#AC3838",
     grey: "#CCCCCC",
   },
@@ -24,13 +24,13 @@ const theme = {
 
   fontSizes: {
     small: "1.6vw",
-    base: "4vw",
-    medium: "7vw",
-    big: "13.200vw",
+    base: "2.7vw",
+    medium: "10.5vw",
+    big: "21vw",
   },
 
   paddings: {
-    content: "1vw",
+    content: "4vw",
   },
 }
 

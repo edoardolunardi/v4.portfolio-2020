@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled, { css } from "styled-components"
 
 const Span = styled.span`
-  display: inline-block;
+  display: ${props => (props.block ? "block" : "inline-block")};
   ${props =>
     props.hasAnimation
       ? css`
@@ -37,8 +37,8 @@ const Spanify = ({ text, lines, hasAnimation }) => {
     return (
       <>
         {lines.map((line, i) => (
-          <Span key={i} delay={i * 70} className="stagger">
-            {line}
+          <Span key={i} delay={i * 70} block className="stagger">
+            {line === " " ? "\u00A0" : line}
           </Span>
         ))}
       </>
