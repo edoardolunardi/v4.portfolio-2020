@@ -32,14 +32,13 @@ const StyledBack = styled(Link)`
 `
 
 const Contact = styled.h2`
-  display: block;
   position: absolute;
   top: 0;
   right: 0;
-  text-transform: lowercase;
   font-size: ${props => props.theme.fontSizes.small};
   padding-top: ${props => props.theme.paddings.content};
   padding-right: ${props => props.theme.paddings.content};
+  text-transform: lowercase;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
     font-size: ${props => props.theme.fontSizes.base};

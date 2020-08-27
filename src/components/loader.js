@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import styled, { keyframes } from "styled-components"
+import { StaggerReveal } from "./ui"
 import Context from "./context"
 import Spanify from "./spanify"
 
@@ -46,8 +47,9 @@ const Panel2 = styled.div`
 `
 
 const Intro = styled.span`
-  font-size: ${props => props.theme.fontSizes.big};
-  text-transform: uppercase;
+  font-size: ${props => props.theme.fontSizes.medium};
+  font-weight: bold;
+  text-transform: lowercase;
 `
 
 const Loader = () => {
@@ -62,9 +64,11 @@ const Loader = () => {
   return (
     <Container>
       <Panel1>
-        <Intro className="animation-stagger">
-          <Spanify text="Keep grinding" hasAnimation />
-        </Intro>
+        <StaggerReveal animate={true}>
+          <Intro>
+            <Spanify text="Keep grinding" hasAnimation />
+          </Intro>
+        </StaggerReveal>
       </Panel1>
       <Panel2 />
     </Container>

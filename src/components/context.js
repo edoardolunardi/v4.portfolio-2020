@@ -8,7 +8,7 @@ const defaultState = {
 const AppContext = createContext(defaultState)
 
 const AppProvider = ({ children }) => {
-  const [showLoader, setShowLoader] = useState(false)
+  const [showLoader, setShowLoader] = useState(true)
 
   return (
     <AppContext.Provider

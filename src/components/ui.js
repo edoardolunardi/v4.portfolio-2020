@@ -43,6 +43,11 @@ export const ContentReveal = styled.div`
 export const StaggerReveal = styled.div`
   overflow: hidden;
 
+  span {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
   ${props =>
     props.animate &&
     css`
@@ -53,6 +58,10 @@ export const StaggerReveal = styled.div`
         animation-fill-mode: both;
       }
     `}
+`
+
+export const Anchor = styled.a`
+  display: inline-block;
 `
 
 export const Title = styled.h1`
