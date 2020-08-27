@@ -23,10 +23,12 @@ const theme = {
   },
 
   fontSizes: {
-    small: "1.6vw",
-    base: "2.7vw",
-    medium: "10.5vw",
-    big: "21vw",
+    xs: "1.6vw",
+    sm: "2.7vw",
+    md: "5vw",
+    lg: "7vw",
+    xl: "10.5vw",
+    xxl: "21vw",
   },
 
   paddings: {

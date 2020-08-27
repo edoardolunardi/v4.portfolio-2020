@@ -47,9 +47,13 @@ const Panel2 = styled.div`
 `
 
 const Intro = styled.span`
-  font-size: ${props => props.theme.fontSizes.medium};
+  font-size: ${props => props.theme.fontSizes.xl};
   font-weight: bold;
   text-transform: lowercase;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.lg};
+  }
 `
 
 const Loader = () => {

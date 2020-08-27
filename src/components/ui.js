@@ -69,7 +69,7 @@ export const Title = styled.h1`
   margin-left: -0.5vw;
   line-height: 0.8;
   font-weight: bold;
-  font-size: ${props => props.theme.fontSizes.big};
+  font-size: ${props => props.theme.fontSizes.xxl};
   overflow: hidden;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
@@ -78,10 +78,14 @@ export const Title = styled.h1`
 `
 
 export const Paragraph = styled.p`
-  font-size: ${props => props.theme.fontSizes.base};
+  font-size: ${props => props.theme.fontSizes.sm};
   font-weight: bold;
   line-height: 1;
   margin-bottom: ${props => (props.noMarginBottom ? "0" : "2.5vw")};
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.lg};
+  }
 `
 
 export const Row = styled.div`
@@ -92,14 +96,27 @@ export const Row = styled.div`
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    flex-direction: column;
+    margin-bottom: 12vw;
+  }
 `
 
 export const Col2 = styled.div`
   width: 20%;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    width: 100%;
+  }
 `
 
 export const Col8 = styled.div`
   width: 80%;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    width: 100%;
+  }
 `
 
 export const Span = styled.span`

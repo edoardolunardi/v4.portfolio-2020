@@ -35,6 +35,11 @@ const StyledLink = styled(Link)`
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    height: 50vh;
+    max-width: 100%;
+  }
 `
 
 const Container = styled.div`
@@ -51,15 +56,11 @@ const Container = styled.div`
         animation: ${scale} 1s ${props.theme.transitions.bezier};
       }
     `}
-
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
-    height: 50vh;
-  }
 `
 
 const Counter = styled.div`
   opacity: 0.6;
-  font-size: ${props => props.theme.fontSizes.medium};
+  font-size: ${props => props.theme.fontSizes.xl};
   font-weight: bold;
   position: absolute;
   z-index: 1;
@@ -95,11 +96,11 @@ const ProjectPreview = ({ title, $isRight, inProject, count }) => {
         <Spanify text={count} />
       </Counter>
       <Container data-scroll>{map[title]}</Container>
-      <Paragraph data-scroll $isRight={$isRight} className="transition-stagger">
-        <Title $isRight={$isRight}>
+      <Title data-scroll $isRight={$isRight} className="transition-stagger">
+        <Paragraph>
           <Spanify text={title} />
-        </Title>
-      </Paragraph>
+        </Paragraph>
+      </Title>
     </StyledLink>
   )
 }

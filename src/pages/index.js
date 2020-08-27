@@ -11,7 +11,7 @@ import {
   Col2,
   Col8,
 } from "../components/ui"
-
+import useMediaQuery from "../hooks/useMediaQuery"
 import SEO from "../components/seo"
 import Spanify from "../components/spanify"
 import ProjectPreview from "../components/projectPreview"
@@ -21,11 +21,18 @@ const TitleBlock = styled.div`
   text-align: right;
   padding-bottom: 7vw;
   padding-top: 7vw;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    padding-bottom: 15vw;
+  }
 `
 
 const IntroBlock = styled.div`
-  max-width: 33vw;
   margin-bottom: 5vw;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    margin-bottom: 15vw;
+  }
 `
 
 const AboutBlock = styled.div`
@@ -35,8 +42,13 @@ const AboutBlock = styled.div`
 `
 
 const AboutSpan = styled.div`
-  font-size: ${props => props.theme.fontSizes.small};
+  font-size: ${props => props.theme.fontSizes.xs};
   text-transform: lowercase;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    font-size: ${props => props.theme.fontSizes.md};
+    margin-bottom: 4vw;
+  }
 `
 
 const CopyBlock = styled.div`
@@ -46,12 +58,12 @@ const CopyBlock = styled.div`
 `
 
 const Copy = styled(Span)`
-  font-size: ${props => props.theme.fontSizes.small};
+  font-size: ${props => props.theme.fontSizes.xs};
   display: block;
   text-transform: lowercase;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
-    font-size: ${props => props.theme.fontSizes.base};
+    font-size: ${props => props.theme.fontSizes.md};
     text-align: right;
     max-width: 70vw;
   }
@@ -60,19 +72,20 @@ const Copy = styled(Span)`
 const IndexPage = () => {
   const projects = ["diego", "emerge", "bitboss", "i3p"]
   const { showLoader } = useContext(Context)
+  const isMobile = useMediaQuery("md")
 
   return (
     <>
       <SEO title="Home" />
-      <StaggerReveal animate={!showLoader}>
-        <TitleBlock>
+      <TitleBlock>
+        <StaggerReveal animate={!showLoader}>
           <Title>
             <Spanify text="edo" hasAnimation />
           </Title>
-        </TitleBlock>
-      </StaggerReveal>
-      <StaggerReveal animate={!showLoader}>
-        <IntroBlock>
+        </StaggerReveal>
+      </TitleBlock>
+      <IntroBlock>
+        <StaggerReveal animate={!showLoader}>
           <Paragraph>
             <Spanify
               lines={[
@@ -84,8 +97,8 @@ const IndexPage = () => {
               animateAfter={300}
             />
           </Paragraph>
-        </IntroBlock>
-      </StaggerReveal>
+        </StaggerReveal>
+      </IntroBlock>
       <ContentReveal animate={!showLoader} animateAfter={500}>
         {projects.map((project, i) => (
           <ProjectPreview
@@ -120,7 +133,7 @@ const IndexPage = () => {
           </Row>
           <Row
             data-scroll
-            data-scroll-offset="20%"
+            data-scroll-offset={isMobile ? "0" : "20%"}
             className="transition-stagger"
           >
             <Col2>

@@ -12,7 +12,7 @@ const Container = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: ${props => props.theme.fontSizes.medium};
+  font-size: ${props => props.theme.fontSizes.xl};
 `
 
 const ChangeBrowser = () => (
