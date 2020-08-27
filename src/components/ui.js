@@ -32,7 +32,7 @@ export const ContentReveal = styled.div`
     props.animate &&
     css`
       animation-name: ${reveal};
-      animation-duration: 550ms;
+      animation-duration: 1s;
       animation-timing-function: ${props.theme.transitions.bezier};
       animation-fill-mode: both;
       animation-delay: ${props =>
