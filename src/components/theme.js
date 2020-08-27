@@ -13,8 +13,6 @@ const theme = {
     isabelline: "#F6F5F1",
     white: "#FFFFFF",
     black: "#1A1A21",
-    accent: "#AC3838",
-    grey: "#CCCCCC",
   },
 
   transitions: {

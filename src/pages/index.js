@@ -10,6 +10,7 @@ import {
   Row,
   Col2,
   Col8,
+  Anchor,
 } from "../components/ui"
 import useMediaQuery from "../hooks/useMediaQuery"
 import SEO from "../components/seo"
@@ -143,10 +144,17 @@ const IndexPage = () => {
             </Col2>
             <Col8>
               <Paragraph noMarginBottom>
-                <Span>Linkedin</Span>
+                <Anchor
+                  href="https://www.linkedin.com/in/edoardolunardi/"
+                  target="_blank"
+                >
+                  <Span>Linkedin</Span>
+                </Anchor>
               </Paragraph>
               <Paragraph noMarginBottom>
-                <Span>Email</Span>
+                <Anchor href="mailto:edward.lunardi@gmail.com">
+                  <Span>Email</Span>
+                </Anchor>
               </Paragraph>
             </Col8>
           </Row>

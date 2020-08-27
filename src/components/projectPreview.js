@@ -56,7 +56,7 @@ const Container = styled.div`
 `
 
 const Counter = styled.div`
-  opacity: 0.6;
+  opacity: 0.5;
   font-size: ${props => props.theme.fontSizes.xl};
   font-weight: bold;
   position: absolute;

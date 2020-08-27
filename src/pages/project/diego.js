@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
+import { rgba } from "polished"
 import Context from "../../components/context"
 import {
   Title,
@@ -10,6 +11,7 @@ import {
   Col8,
   Span,
   Paragraph,
+  Anchor,
 } from "../../components/ui"
 import LazyVideo from "../../components/lazyVideo"
 import useMediaQuery from "../../hooks/useMediaQuery"
@@ -29,7 +31,7 @@ import gallery4 from "../../projects-media/diego/gallery4.mp4"
 
 const VideoContainer = styled.div`
   padding: 5vw;
-  background-color: ${props => props.theme.colors.grey};
+  background-color: ${props => rgba(props.theme.colors.black, 0.5)};
   margin-bottom: 5vw;
 
   &:last-of-type {
@@ -77,7 +79,7 @@ const InfoSpan = styled.div`
   }
 `
 
-const Website = styled.a`
+const Website = styled(Anchor)`
   display: flex;
   align-items: center;
 `
@@ -133,7 +135,7 @@ const DiegoPage = () => {
                 <Span>Some agency</Span>
               </Paragraph>
               <Paragraph noMarginBottom>
-                <Website href="#">
+                <Website href="https://diegoravier.com/" target="_blank">
                   <Span>
                     Open website
                     <OpenSvg />
