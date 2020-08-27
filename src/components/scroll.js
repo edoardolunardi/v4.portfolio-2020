@@ -9,6 +9,8 @@ const Scroll = ({ location, isMobile, container }) => {
       lerp: 0.07,
     })
 
+    window.locomotiveScroll = locomotiveScroll
+
     const clamp = (val, max, min) => {
       return (val - min) / (max - min)
     }

@@ -11,6 +11,7 @@ const About = styled.div`
   padding-top: ${props => props.theme.paddings.content};
   padding-left: ${props => props.theme.paddings.content};
   text-transform: lowercase;
+  cursor: pointer;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
     font-size: ${props => props.theme.fontSizes.md};
@@ -35,6 +36,7 @@ const Contact = styled.h2`
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
   font-size: ${props => props.theme.fontSizes.xs};
   padding-top: ${props => props.theme.paddings.content};
   padding-right: ${props => props.theme.paddings.content};
@@ -48,8 +50,20 @@ const Contact = styled.h2`
 const Header = ({ location }) => {
   return (
     <>
-      <About>About</About>
-      <Contact>Contact</Contact>
+      <About
+        onClick={() =>
+          window.locomotiveScroll.scrollTo(document.getElementById("#about"))
+        }
+      >
+        About
+      </About>
+      <Contact
+        onClick={() =>
+          window.locomotiveScroll.scrollTo(document.getElementById("#contact"))
+        }
+      >
+        Contact
+      </Contact>
     </>
   )
 }

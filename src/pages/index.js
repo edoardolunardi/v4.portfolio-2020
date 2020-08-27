@@ -113,6 +113,7 @@ const IndexPage = () => {
             data-scroll
             data-scroll-offset="20%"
             className="transition-stagger"
+            id="#about"
           >
             <Col2>
               <AboutSpan>About</AboutSpan>
@@ -135,6 +136,7 @@ const IndexPage = () => {
             data-scroll
             data-scroll-offset={isMobile ? "0" : "20%"}
             className="transition-stagger"
+            id="#contact"
           >
             <Col2>
               <AboutSpan>Contact</AboutSpan>
