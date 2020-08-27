@@ -59,7 +59,7 @@ const Layout = ({ children, location }) => {
           />
           {!isMobile && <Cursor />}
           <Container ref={scrollContentRef}>
-            <Header location={location.pathname} />
+            <Header inProject={location.pathname.includes("project")} />
             <Main>{children}</Main>
           </Container>
         </motion.div>

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import BackSVG from "../icons/back.svg"
 
@@ -47,15 +48,23 @@ const Contact = styled.h2`
   }
 `
 
-const Header = ({ location }) => {
+const Header = ({ inProject }) => {
   return (
     <>
       <About
-        onClick={() =>
-          window.locomotiveScroll.scrollTo(document.getElementById("#about"))
-        }
+        {...(!inProject && {
+          onClick: () =>
+            window.locomotiveScroll.scrollTo(document.getElementById("#about")),
+        })}
       >
-        About
+        {inProject ? (
+          <StyledBack to="/">
+            <BackSVG />
+            back
+          </StyledBack>
+        ) : (
+          "about"
+        )}
       </About>
       <Contact
         onClick={() =>
@@ -66,6 +75,10 @@ const Header = ({ location }) => {
       </Contact>
     </>
   )
+}
+
+Header.propTypes = {
+  inProject: PropTypes.bool,
 }
 
 export default Header

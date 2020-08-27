@@ -67,7 +67,7 @@ export const Anchor = styled.a`
 export const Title = styled.h1`
   user-select: none;
   margin-left: -0.5vw;
-  line-height: 0.8;
+  line-height: 1;
   font-weight: bold;
   font-size: ${props => props.theme.fontSizes.xxl};
   overflow: hidden;

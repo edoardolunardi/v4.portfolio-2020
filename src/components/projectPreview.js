@@ -4,10 +4,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { Paragraph } from "./ui"
 import Spanify from "../components/spanify"
-import Diego from "./gatsby-images/diego.image"
-import Emerge from "./gatsby-images/emerge.image"
-import Bitboss from "./gatsby-images/bitboss.image"
-import I3p from "./gatsby-images/i3p.image"
+import { map } from "../utils/projectImageMap"
 
 const scale = keyframes`
   from {
@@ -83,27 +80,19 @@ const Title = styled.div`
   text-align: ${props => (props.$isRight ? "right" : "left")};
 `
 
-const ProjectPreview = ({ title, $isRight, inProject, count }) => {
-  const map = {
-    diego: <Diego />,
-    emerge: <Emerge />,
-    bitboss: <Bitboss />,
-    i3p: <I3p />,
-  }
-  return (
-    <StyledLink $isRight={$isRight} to={`/project/${title}`}>
-      <Counter data-scroll className="transition-stagger" $isRight={$isRight}>
-        <Spanify text={count} />
-      </Counter>
-      <Container data-scroll>{map[title]}</Container>
-      <Title data-scroll $isRight={$isRight} className="transition-stagger">
-        <Paragraph>
-          <Spanify text={title} />
-        </Paragraph>
-      </Title>
-    </StyledLink>
-  )
-}
+const ProjectPreview = ({ title, $isRight, count }) => (
+  <StyledLink $isRight={$isRight} to={`/project/${title}`}>
+    <Counter data-scroll className="transition-stagger" $isRight={$isRight}>
+      <Spanify text={count} />
+    </Counter>
+    <Container data-scroll>{map[title]}</Container>
+    <Title data-scroll $isRight={$isRight} className="transition-stagger">
+      <Paragraph>
+        <Spanify text={title} />
+      </Paragraph>
+    </Title>
+  </StyledLink>
+)
 
 ProjectPreview.propTypes = {
   title: PropTypes.string.isRequired,

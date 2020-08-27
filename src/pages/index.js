@@ -19,8 +19,8 @@ import ProjectPreview from "../components/projectPreview"
 const TitleBlock = styled.div`
   font-weight: bold;
   text-align: right;
-  padding-bottom: 7vw;
-  padding-top: 7vw;
+  padding-bottom: 4vw;
+  padding-top: 4vw;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
     padding-bottom: 15vw;
