@@ -1,27 +1,58 @@
-import styled from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 
-export const VideoContainer = styled.div`
-  padding: 5vw;
-  background-color: ${props => props.theme.colors.grey};
-  margin-top: 5vw;
+const reveal = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 `
 
-export const VideoWrapper = styled.div`
-  width: 100%;
-  position: relative;
-  padding-top: 51.53%;
+const revealStagger = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
 
-  > video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 `
 
 export const ContentReveal = styled.div`
   opacity: 0;
   transform: translate3d(0, 100px, 0);
+
+  ${props =>
+    props.animate &&
+    css`
+      animation-name: ${reveal};
+      animation-duration: 550ms;
+      animation-timing-function: ${props.theme.transitions.bezier};
+      animation-fill-mode: both;
+      animation-delay: ${props =>
+        props.animateAfter ? props.animateAfter : 0}ms;
+    `}
+`
+
+export const StaggerReveal = styled.div`
+  overflow: hidden;
+
+  ${props =>
+    props.animate &&
+    css`
+      span {
+        animation-name: ${revealStagger};
+        animation-duration: 1s;
+        animation-timing-function: ${props => props.theme.transitions.bezier};
+        animation-fill-mode: both;
+      }
+    `}
 `
 
 export const Title = styled.h1`
@@ -30,10 +61,7 @@ export const Title = styled.h1`
   line-height: 0.8;
   font-weight: bold;
   font-size: ${props => props.theme.fontSizes.big};
-
-  span {
-    opacity: 0;
-  }
+  overflow: hidden;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
     padding-top: 30vh;
@@ -63,4 +91,8 @@ export const Col2 = styled.div`
 
 export const Col8 = styled.div`
   width: 80%;
+`
+
+export const Span = styled.span`
+  display: inline-block;
 `

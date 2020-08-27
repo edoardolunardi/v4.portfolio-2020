@@ -1,11 +1,7 @@
 import React, { useContext } from "react"
+import styled from "styled-components"
 import Context from "../../components/context"
-import {
-  Title,
-  ContentReveal,
-  VideoContainer,
-  VideoWrapper,
-} from "../../components/ui"
+import { Title, ContentReveal } from "../../components/ui"
 import LazyVideo from "../../components/lazyVideo"
 
 import SEO from "../../components/seo"
@@ -20,6 +16,25 @@ import gallery2 from "../../projects-media/diego/gallery2.mp4"
 import gallery3 from "../../projects-media/diego/gallery3.mp4"
 import gallery4 from "../../projects-media/diego/gallery4.mp4"
 
+const VideoContainer = styled.div`
+  padding: 5vw;
+  background-color: ${props => props.theme.colors.grey};
+  margin-top: 5vw;
+`
+
+const VideoWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  padding-top: 51.53%;
+
+  > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+`
+
 const DiegoPage = () => {
   const { showLoader } = useContext(Context)
   return (
@@ -28,7 +43,7 @@ const DiegoPage = () => {
       <Title className={`${!showLoader && "animation-stagger"}`}>
         <Spanify text="Diego Ravier" hasAnimation />
       </Title>
-      <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
+      <ContentReveal animate={!showLoader}>
         <ProjectPreview title="diego" inProject />
         <VideoContainer>
           <VideoWrapper>

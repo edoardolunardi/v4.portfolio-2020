@@ -3,6 +3,7 @@ import styled, { css, keyframes } from "styled-components"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { Paragraph } from "./ui"
+import Spanify from "../components/spanify"
 import Diego from "./gatsby-images/diego.image"
 import Emerge from "./gatsby-images/emerge.image"
 import Bitboss from "./gatsby-images/bitboss.image"
@@ -26,7 +27,7 @@ const StyledLink = styled(Link)`
   position: relative;
 
   ${props =>
-    props.isRight &&
+    props.$isRight &&
     css`
       margin-left: auto;
     `}
@@ -66,22 +67,22 @@ const Counter = styled.div`
   margin-top: -7vw;
 
   ${props =>
-    props.isRight
+    props.$isRight
       ? css`
           left: 0;
-          padding-left: 7vw;
+          margin-left: 7vw;
         `
       : css`
           right: 0;
-          padding-right: 7vw;
+          margin-right: 7vw;
         `}
 `
 
 const Title = styled.div`
-  text-align: ${props => (props.isRight ? "left" : "right")};
+  text-align: ${props => (props.$isRight ? "right" : "left")};
 `
 
-const ProjectPreview = ({ title, isRight, inProject, count }) => {
+const ProjectPreview = ({ title, $isRight, inProject, count }) => {
   const map = {
     diego: <Diego />,
     emerge: <Emerge />,
@@ -89,11 +90,15 @@ const ProjectPreview = ({ title, isRight, inProject, count }) => {
     i3p: <I3p />,
   }
   return (
-    <StyledLink isRight={isRight} to={`/project/${title}`}>
-      <Counter isRight={isRight}>{count}</Counter>
+    <StyledLink $isRight={$isRight} to={`/project/${title}`}>
+      <Counter data-scroll className="transition-stagger" $isRight={$isRight}>
+        <Spanify text={count} />
+      </Counter>
       <Container data-scroll>{map[title]}</Container>
-      <Paragraph isRight={isRight}>
-        <Title>{title}</Title>
+      <Paragraph data-scroll $isRight={$isRight} className="transition-stagger">
+        <Title $isRight={$isRight}>
+          <Spanify text={title} />
+        </Title>
       </Paragraph>
     </StyledLink>
   )
@@ -101,7 +106,7 @@ const ProjectPreview = ({ title, isRight, inProject, count }) => {
 
 ProjectPreview.propTypes = {
   title: PropTypes.string.isRequired,
-  isRight: PropTypes.bool,
+  $isRight: PropTypes.bool,
   inProject: PropTypes.bool,
 }
 

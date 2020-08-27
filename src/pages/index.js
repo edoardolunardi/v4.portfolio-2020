@@ -1,10 +1,12 @@
 import React, { useContext } from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Context from "../components/context"
 import {
   Title,
   Paragraph,
+  Span,
   ContentReveal,
+  StaggerReveal,
   Row,
   Col2,
   Col8,
@@ -43,7 +45,7 @@ const CopyBlock = styled.div`
   width: 100%;
 `
 
-const Copy = styled.span`
+const Copy = styled(Span)`
   font-size: ${props => props.theme.fontSizes.small};
   display: block;
   text-transform: lowercase;
@@ -62,32 +64,43 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <TitleBlock>
-        <Title className={`${!showLoader && "animation-stagger"}`}>
-          <Spanify text="edo" hasAnimation />
-        </Title>
-      </TitleBlock>
-      <IntroBlock>
-        <Paragraph>
-          Edoardo is a detail-oriented front-end developer with a passion for
-          design
-        </Paragraph>
-      </IntroBlock>
-      <ContentReveal className={`${!showLoader && "animation-reveal"}`}>
+      <StaggerReveal animate={!showLoader}>
+        <TitleBlock>
+          <Title>
+            <Spanify text="edo" hasAnimation />
+          </Title>
+        </TitleBlock>
+      </StaggerReveal>
+      <StaggerReveal animate={!showLoader}>
+        <IntroBlock>
+          <Paragraph>
+            <Spanify
+              lines={[
+                "Edoardo is a detail-oriented",
+                "front-end developer with a",
+                "passion for design",
+              ]}
+              hasAnimation
+              animateAfter={300}
+            />
+          </Paragraph>
+        </IntroBlock>
+      </StaggerReveal>
+      <ContentReveal animate={!showLoader} animateAfter={500}>
         {projects.map((project, i) => (
           <ProjectPreview
             title={project}
-            isRight={i % 2 === 0}
+            $isRight={i % 2 === 0}
             count={i < 10 ? `0${i + 1}` : i + 1}
             key={`project-${i}`}
           />
         ))}
-        <AboutBlock
-          data-scroll
-          data-scroll-offset="40%"
-          className="transition-stagger"
-        >
-          <Row>
+        <AboutBlock>
+          <Row
+            data-scroll
+            data-scroll-offset="20%"
+            className="transition-stagger"
+          >
             <Col2>
               <AboutSpan>About</AboutSpan>
             </Col2>
@@ -105,17 +118,29 @@ const IndexPage = () => {
               </Paragraph>
             </Col8>
           </Row>
-          <Row>
+          <Row
+            data-scroll
+            data-scroll-offset="20%"
+            className="transition-stagger"
+          >
             <Col2>
               <AboutSpan>Contact</AboutSpan>
             </Col2>
             <Col8>
-              <Paragraph noMarginBottom>Linkedin</Paragraph>
-              <Paragraph noMarginBottom>Email</Paragraph>
+              <Paragraph noMarginBottom>
+                <Span>Linkedin</Span>
+              </Paragraph>
+              <Paragraph noMarginBottom>
+                <Span>Email</Span>
+              </Paragraph>
             </Col8>
           </Row>
         </AboutBlock>
-        <CopyBlock>
+        <CopyBlock
+          data-scroll
+          data-scroll-offset="-10%"
+          className="transition-stagger"
+        >
           <Copy>All images are copyright to their respective owners</Copy>
         </CopyBlock>
       </ContentReveal>

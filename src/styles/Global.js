@@ -22,34 +22,6 @@ export default createGlobalStyle`
     font-style: normal;
   }
 
-  @keyframes animate-stagger {
-    from {
-      transform: translate3d(0, 100px, 0);
-      opacity: 0;
-    }
-
-    to {
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
-    }
-  }
-
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px){
-    @keyframes animate-stagger {
-        from {
-          transform: translate3d(0, 50px, 0);
-          opacity: 0;
-        }
-    
-        to {
-          transform: translate3d(0, 0, 0);
-          opacity: 1;
-        }
-      }
-  }
-
-  
-
   @keyframes noise {
     0% {
       transform: translate3d(0, 9rem, 0);
@@ -153,37 +125,16 @@ export default createGlobalStyle`
   .transition-stagger {
     overflow: hidden;
     span {
-      transform: translate3d(0, 100px, 0);
+      transform: translate3d(0, 100%, 0);
       opacity: 0;
       transition-property: transform, opacity;
       transition-duration: 1s;
       transition-timing-function: ${props => props.theme.transitions.bezier};
-
-      @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
-        transform: translate3d(0, 50px, 0);
-      }
     }
   }
 
   .transition-stagger.is-inview span {
     transform: translate3d(0, 0, 0);
     opacity: 1;
-  }
-
-  .animation-stagger {
-    overflow: hidden;
-    > span {
-      animation-name: animate-stagger;
-      animation-duration: 550ms;
-      animation-timing-function: ${props => props.theme.transitions.bezier};
-      animation-fill-mode: both;
-    }
-  }
-
-  .animation-reveal {
-    animation-name: animate-stagger;
-    animation-duration: 550ms;
-    animation-timing-function: ${props => props.theme.transitions.bezier};
-    animation-fill-mode: both;
   }
 `
