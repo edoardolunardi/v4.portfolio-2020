@@ -1,8 +1,9 @@
 import React, { useContext } from "react"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
 import { rgba } from "polished"
-import Context from "../../components/context"
+import Context from "../components/context"
 import {
   Title,
   ContentReveal,
@@ -13,22 +14,22 @@ import {
   Span,
   Paragraph,
   Anchor,
-} from "../../components/ui"
-import LazyVideo from "../../components/lazyVideo"
-import useMediaQuery from "../../hooks/useMediaQuery"
+} from "../components/ui"
+import LazyVideo from "../components/lazyVideo"
+import useMediaQuery from "../hooks/useMediaQuery"
 
-import SEO from "../../components/seo"
-import Spanify from "../../components/spanify"
-import ProjectHero from "../../components/projectHero"
-import OpenSvg from "../../icons/open-arrow.svg"
+import SEO from "../components/seo"
+import Spanify from "../components/spanify"
+import ProjectHero from "../components/projectHero"
+import OpenSvg from "../icons/open-arrow.svg"
 
 // Media
-import homeVideo from "../../projects-media/diego/home.mp4"
-import menuVideo from "../../projects-media/diego/menu.mp4"
-import gallery from "../../projects-media/diego/gallery.mp4"
-import gallery2 from "../../projects-media/diego/gallery2.mp4"
-import gallery3 from "../../projects-media/diego/gallery3.mp4"
-import gallery4 from "../../projects-media/diego/gallery4.mp4"
+// import homeVideo from "../../projects-media/diego/home.mp4"
+// import menuVideo from "../../projects-media/diego/menu.mp4"
+// import gallery from "../../projects-media/diego/gallery.mp4"
+// import gallery2 from "../../projects-media/diego/gallery2.mp4"
+// import gallery3 from "../../projects-media/diego/gallery3.mp4"
+// import gallery4 from "../../projects-media/diego/gallery4.mp4"
 
 const VideoContainer = styled.div`
   padding: 5vw;
@@ -85,40 +86,39 @@ const Website = styled(Anchor)`
   align-items: center;
 `
 
-const DiegoPage = () => {
+const Project = ({ data }) => {
+  const { markdownRemark } = data
+  const { content } = markdownRemark
+  const { seo, title, cover, description, agency, website, videos } = content
   const { showLoader } = useContext(Context)
   const isMobile = useMediaQuery("md")
+
+  console.log(videos)
+
   return (
     <>
-      <SEO title="Diego Ravier" />
+      <SEO title={seo.title} />
       <TitleBlock>
         <StaggerReveal animate={!showLoader}>
           <Title>
-            <Spanify text="diego" hasAnimation />
+            <Spanify text={title} hasAnimation />
           </Title>
         </StaggerReveal>
       </TitleBlock>
       <ContentReveal animate={!showLoader} animateAfter={300}>
-        <ProjectHero title="diego" />
+        <ProjectHero image={cover.childImageSharp.fluid} />
         <InfoBlock>
           <Row
             data-scroll
             data-scroll-offset="20%"
             className="transition-stagger"
-            id="#about"
           >
             <Col2>
               <InfoSpan>The project</InfoSpan>
             </Col2>
             <Col8>
               <Paragraph noMarginBottom>
-                <Spanify
-                  lines={[
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
-                    "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut",
-                    "enim ad minim veniam, quis nostrud exercitation",
-                  ]}
-                />
+                <Spanify lines={description} />
               </Paragraph>
             </Col8>
           </Row>
@@ -126,17 +126,16 @@ const DiegoPage = () => {
             data-scroll
             data-scroll-offset={isMobile ? "0" : "20%"}
             className="transition-stagger"
-            id="#contact"
           >
             <Col2>
               <InfoSpan>Agency</InfoSpan>
             </Col2>
             <Col8>
               <Paragraph noMarginBottom>
-                <Span>Some agency</Span>
+                <Span>{agency.name}</Span>
               </Paragraph>
               <Paragraph noMarginBottom>
-                <Website href="https://diegoravier.com/" target="_blank">
+                <Website href={website} target="_blank">
                   <Span>
                     Open website
                     <OpenSvg />
@@ -146,39 +145,44 @@ const DiegoPage = () => {
             </Col8>
           </Row>
         </InfoBlock>
-        <VideoContainer>
-          <VideoWrapper>
-            <LazyVideo src={homeVideo} />
-          </VideoWrapper>
-        </VideoContainer>
-        <VideoContainer>
-          <VideoWrapper>
-            <LazyVideo src={menuVideo} />
-          </VideoWrapper>
-        </VideoContainer>
-        <VideoContainer>
-          <VideoWrapper>
-            <LazyVideo src={gallery} />
-          </VideoWrapper>
-        </VideoContainer>
-        <VideoContainer>
-          <VideoWrapper>
-            <LazyVideo src={gallery2} />
-          </VideoWrapper>
-        </VideoContainer>
-        <VideoContainer>
-          <VideoWrapper>
-            <LazyVideo src={gallery3} />
-          </VideoWrapper>
-        </VideoContainer>
-        <VideoContainer>
-          <VideoWrapper>
-            <LazyVideo src={gallery4} />
-          </VideoWrapper>
-        </VideoContainer>
+        {videos.map((video, i) => (
+          <VideoContainer key={i}>
+            <VideoWrapper>
+              <LazyVideo src={`/diego/${video}`} />
+            </VideoWrapper>
+          </VideoContainer>
+        ))}
       </ContentReveal>
     </>
   )
 }
 
-export default DiegoPage
+export default Project
+
+export const pageQuery = graphql`
+  query($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      content: frontmatter {
+        slug
+        seo {
+          title
+        }
+        title
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+        description
+        agency {
+          name
+          link
+        }
+        website
+        videos
+      }
+    }
+  }
+`

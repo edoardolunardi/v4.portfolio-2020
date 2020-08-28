@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
 import PropTypes from "prop-types"
-import { map } from "../utils/projectImageMap"
+import Img from "gatsby-image"
 
 const Container = styled.div`
   width: 100%;
@@ -15,11 +15,15 @@ const Container = styled.div`
   }
 `
 
-const ProjectHero = ({ title }) => {
-  return <Container>{map[title]}</Container>
+const ProjectHero = ({ image }) => {
+  return (
+    <Container>
+      <Img fluid={image} draggable={false} className="project-image" />
+    </Container>
+  )
 }
 
 ProjectHero.propTypes = {
-  title: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
 }
 export default ProjectHero
