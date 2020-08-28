@@ -4,6 +4,7 @@ sort: 1
 seo:
   title: "Diego Ravier"
   image: "../images/diego.jpg"
+  description: "Diego Ravier is a freelance photojournalist, multimedia story teller and educator who is dedicated to documenting stories of social significance."
 title: "Diego"
 cover: "../images/diego.jpg"
 description:

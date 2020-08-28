@@ -4,6 +4,7 @@ sort: 3
 seo:
   title: "Bitboss"
   image: "../images/bitboss.jpg"
+  description: "Bitboss is a software house creating tailor-made web-based applications for businesses and startups."
 title: "Bitboss"
 cover: "../images/bitboss.jpg"
 description:
