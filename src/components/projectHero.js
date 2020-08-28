@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { down } from "styled-breakpoints"
 import PropTypes from "prop-types"
 import { map } from "../utils/projectImageMap"
 
@@ -9,7 +10,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     height: 50vh;
   }
 `

@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
+import { down } from "styled-breakpoints"
 import { rgba } from "polished"
 import Context from "../../components/context"
 import {
@@ -58,7 +59,7 @@ const TitleBlock = styled.div`
   padding-bottom: 10vw;
   padding-top: 4vw;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     padding-bottom: 15vw;
   }
 `
@@ -73,7 +74,7 @@ const InfoSpan = styled.div`
   font-size: ${props => props.theme.fontSizes.xs};
   text-transform: lowercase;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
     margin-bottom: 4vw;
   }

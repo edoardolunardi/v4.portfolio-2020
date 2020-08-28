@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { down } from "styled-breakpoints"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import BackSVG from "../icons/back.svg"
@@ -14,7 +15,7 @@ const About = styled.div`
   text-transform: lowercase;
   cursor: pointer;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
   }
 `
@@ -27,7 +28,7 @@ const StyledBack = styled(Link)`
     width: 1.5vw;
     margin-right: 5px;
 
-    @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+    ${down("md")} {
       width: 4.5vw;
     }
   }
@@ -43,7 +44,7 @@ const Contact = styled.h2`
   padding-right: ${props => props.theme.paddings.content};
   text-transform: lowercase;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
   }
 `

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import styled, { keyframes } from "styled-components"
+import { down } from "styled-breakpoints"
 import { StaggerReveal } from "./ui"
 import Context from "./context"
 import Spanify from "./spanify"
@@ -51,7 +52,7 @@ const Intro = styled.span`
   font-weight: bold;
   text-transform: lowercase;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     font-size: ${props => props.theme.fontSizes.lg};
   }
 `

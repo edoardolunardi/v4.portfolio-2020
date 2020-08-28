@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components"
+import { down } from "styled-breakpoints"
 
 const reveal = keyframes`
   from {
@@ -72,7 +73,7 @@ export const Title = styled.h1`
   font-size: ${props => props.theme.fontSizes.xxl};
   overflow: hidden;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     padding-top: 30vh;
   }
 `
@@ -83,7 +84,7 @@ export const Paragraph = styled.p`
   line-height: 1;
   margin-bottom: ${props => (props.noMarginBottom ? "0" : "2.5vw")};
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     font-size: ${props => props.theme.fontSizes.lg};
   }
 `
@@ -97,7 +98,7 @@ export const Row = styled.div`
     margin-bottom: 0;
   }
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     flex-direction: column;
     margin-bottom: 12vw;
   }
@@ -106,7 +107,7 @@ export const Row = styled.div`
 export const Col2 = styled.div`
   width: 20%;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     width: 100%;
   }
 `
@@ -114,7 +115,7 @@ export const Col2 = styled.div`
 export const Col8 = styled.div`
   width: 80%;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     width: 100%;
   }
 `

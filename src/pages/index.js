@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
+import { down } from "styled-breakpoints"
 import Context from "../components/context"
 import {
   Title,
@@ -23,7 +24,7 @@ const TitleBlock = styled.div`
   padding-bottom: 4vw;
   padding-top: 4vw;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     padding-bottom: 15vw;
   }
 `
@@ -31,7 +32,7 @@ const TitleBlock = styled.div`
 const IntroBlock = styled.div`
   margin-bottom: 5vw;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     margin-bottom: 15vw;
   }
 `
@@ -46,7 +47,7 @@ const AboutSpan = styled.div`
   font-size: ${props => props.theme.fontSizes.xs};
   text-transform: lowercase;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
     margin-bottom: 4vw;
   }
@@ -63,7 +64,7 @@ const Copy = styled(Span)`
   display: block;
   text-transform: lowercase;
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
     text-align: right;
     max-width: 70vw;

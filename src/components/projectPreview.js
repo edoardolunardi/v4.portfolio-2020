@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css, keyframes } from "styled-components"
+import { down } from "styled-breakpoints"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { Paragraph } from "./ui"
@@ -33,7 +34,7 @@ const StyledLink = styled(Link)`
     margin-bottom: 0;
   }
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}px) {
+  ${down("md")} {
     height: 50vh;
     max-width: 100%;
   }
