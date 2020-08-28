@@ -6,7 +6,7 @@ title: "Edo"
 subtitle:
   - "Edoardo is a detail-oriented"
   - "front-end developer with a"
-  - "for design"
+  - "passion for design"
 about:
   - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
   - "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
