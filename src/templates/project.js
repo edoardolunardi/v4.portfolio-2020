@@ -23,14 +23,6 @@ import Spanify from "../components/spanify"
 import ProjectHero from "../components/projectHero"
 import OpenSvg from "../icons/open-arrow.svg"
 
-// Media
-// import homeVideo from "../../projects-media/diego/home.mp4"
-// import menuVideo from "../../projects-media/diego/menu.mp4"
-// import gallery from "../../projects-media/diego/gallery.mp4"
-// import gallery2 from "../../projects-media/diego/gallery2.mp4"
-// import gallery3 from "../../projects-media/diego/gallery3.mp4"
-// import gallery4 from "../../projects-media/diego/gallery4.mp4"
-
 const VideoContainer = styled.div`
   padding: 5vw;
   background-color: ${props => rgba(props.theme.colors.black, 0.5)};
@@ -93,8 +85,6 @@ const Project = ({ data }) => {
   const { showLoader } = useContext(Context)
   const isMobile = useMediaQuery("md")
 
-  console.log(videos)
-
   return (
     <>
       <SEO title={seo.title} />
@@ -145,13 +135,14 @@ const Project = ({ data }) => {
             </Col8>
           </Row>
         </InfoBlock>
-        {videos.map((video, i) => (
-          <VideoContainer key={i}>
-            <VideoWrapper>
-              <LazyVideo src={`/diego/${video}`} />
-            </VideoWrapper>
-          </VideoContainer>
-        ))}
+        {videos &&
+          videos.map((video, i) => (
+            <VideoContainer key={i}>
+              <VideoWrapper>
+                <LazyVideo src={`/diego/${video}`} />
+              </VideoWrapper>
+            </VideoContainer>
+          ))}
       </ContentReveal>
     </>
   )

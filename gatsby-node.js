@@ -16,6 +16,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const projectTemplate = require.resolve(`./src/templates/project.js`)
+  const homeTemplate = require.resolve(`./src/templates/home.js`)
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -37,7 +38,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
-      component: projectTemplate,
+      component: node.frontmatter.slug === "/" ? homeTemplate : projectTemplate,
       context: {
         slug: node.frontmatter.slug,
       },

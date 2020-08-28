@@ -23,6 +23,7 @@ const TitleBlock = styled.div`
   text-align: right;
   padding-bottom: 4vw;
   padding-top: 4vw;
+  text-transform: lowercase;
 
   ${down("md")} {
     padding-bottom: 15vw;
@@ -71,40 +72,39 @@ const Copy = styled(Span)`
   }
 `
 
-const IndexPage = () => {
-  const projects = ["diego", "emerge", "bitboss", "i3p"]
+const HomePage = ({ data }) => {
+  const { page, projects } = data
+  const { content } = page
+
+  const { seo, title, subtitle } = content
   const { showLoader } = useContext(Context)
   const isMobile = useMediaQuery("md")
 
+  console.log(projects)
+
   return (
     <>
-      <SEO title="Home" />
+      <SEO title={seo.title} />
       <TitleBlock>
         <StaggerReveal animate={!showLoader}>
           <Title>
-            <Spanify text="edo" hasAnimation />
+            <Spanify text={title} hasAnimation />
           </Title>
         </StaggerReveal>
       </TitleBlock>
       <IntroBlock>
         <StaggerReveal animate={!showLoader}>
           <Paragraph>
-            <Spanify
-              lines={[
-                "Edoardo is a detail-oriented",
-                "front-end developer with a",
-                "passion for design",
-              ]}
-              hasAnimation
-              animateAfter={300}
-            />
+            <Spanify lines={subtitle} hasAnimation animateAfter={300} />
           </Paragraph>
         </StaggerReveal>
       </IntroBlock>
       <ContentReveal animate={!showLoader} animateAfter={500}>
-        {projects.map((project, i) => (
+        {projects.edges.map((project, i) => (
           <ProjectPreview
-            title={project}
+            title={project.node.frontmatter.title}
+            slug={project.node.frontmatter.slug}
+            image={project.node.frontmatter.cover.childImageSharp.fluid}
             $isRight={i % 2 === 0}
             count={i < 10 ? `0${i + 1}` : i + 1}
             key={`project-${i}`}
@@ -172,4 +172,38 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default HomePage
+
+export const pageQuery = graphql`
+  query($slug: String!) {
+    page: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      content: frontmatter {
+        slug
+        seo {
+          title
+        }
+        title
+        subtitle
+      }
+    }
+    projects: allMarkdownRemark(
+      filter: { frontmatter: { slug: { ne: $slug } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            slug
+            title
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

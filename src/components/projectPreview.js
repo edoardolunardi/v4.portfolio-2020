@@ -1,11 +1,11 @@
 import React from "react"
 import styled, { css, keyframes } from "styled-components"
+import Img from "gatsby-image"
 import { down } from "styled-breakpoints"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { Paragraph } from "./ui"
 import Spanify from "../components/spanify"
-import { map } from "../utils/projectImageMap"
 
 const scale = keyframes`
   from {
@@ -81,12 +81,14 @@ const Title = styled.div`
   text-align: ${props => (props.$isRight ? "right" : "left")};
 `
 
-const ProjectPreview = ({ title, $isRight, count }) => (
-  <StyledLink $isRight={$isRight} to={`/project/${title}`}>
+const ProjectPreview = ({ title, slug, image, $isRight, count }) => (
+  <StyledLink $isRight={$isRight} to={slug}>
     <Counter data-scroll className="transition-stagger" $isRight={$isRight}>
       <Spanify text={count} />
     </Counter>
-    <Container data-scroll>{map[title]}</Container>
+    <Container data-scroll>
+      <Img fluid={image} draggable={false} className="project-image" />
+    </Container>
     <Title data-scroll $isRight={$isRight} className="transition-stagger">
       <Paragraph>
         <Spanify text={title} />
@@ -97,6 +99,8 @@ const ProjectPreview = ({ title, $isRight, count }) => (
 
 ProjectPreview.propTypes = {
   title: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
   $isRight: PropTypes.bool,
   inProject: PropTypes.bool,
 }
