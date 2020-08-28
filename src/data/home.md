@@ -2,6 +2,7 @@
 slug: "/"
 seo:
   title: "Home"
+  image: "../images/og-image.png"
 title: "Edo"
 subtitle:
   - "Edoardo is a detail-oriented"

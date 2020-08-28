@@ -3,6 +3,7 @@ slug: "/project/diego-ravier"
 sort: 1
 seo:
   title: "Diego Ravier"
+  image: "../images/diego.jpg"
 title: "Diego"
 cover: "../images/diego.jpg"
 description:

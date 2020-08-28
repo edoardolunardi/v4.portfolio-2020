@@ -3,6 +3,7 @@ slug: "/project/i3p"
 sort: 4
 seo:
   title: "i3p"
+  image: "../images/i3p.jpg"
 title: "i3p"
 cover: "../images/i3p.jpg"
 description:

@@ -82,7 +82,7 @@ const HomePage = ({ data }) => {
 
   return (
     <>
-      <SEO title={seo.title} />
+      <SEO title={seo.title} ogImage={seo.ogImage} />
       <TitleBlock>
         <StaggerReveal animate={!showLoader}>
           <Title>
@@ -168,6 +168,9 @@ export const pageQuery = graphql`
         slug
         seo {
           title
+          image {
+            publicURL
+          }
         }
         title
         subtitle

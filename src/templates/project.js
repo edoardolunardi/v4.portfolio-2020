@@ -87,7 +87,7 @@ const Project = ({ data }) => {
 
   return (
     <>
-      <SEO title={seo.title} />
+      <SEO title={seo.title} ogImage={seo.image.publicURL} />
       <TitleBlock>
         <StaggerReveal animate={!showLoader}>
           <Title>
@@ -157,6 +157,9 @@ export const pageQuery = graphql`
         slug
         seo {
           title
+          image {
+            publicURL
+          }
         }
         title
         cover {

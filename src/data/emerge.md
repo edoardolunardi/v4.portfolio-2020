@@ -3,6 +3,7 @@ slug: "/project/emerge"
 sort: 2
 seo:
   title: "Emerge"
+  image: "../images/emerge.jpg"
 title: "Emerge"
 cover: "../images/emerge.jpg"
 description:
