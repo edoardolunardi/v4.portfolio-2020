@@ -67,13 +67,17 @@ const Header = ({ inProject }) => {
           "about"
         )}
       </About>
-      <Contact
-        onClick={() =>
-          window.locomotiveScroll.scrollTo(document.getElementById("#contact"))
-        }
-      >
-        Contact
-      </Contact>
+      {!inProject && (
+        <Contact
+          onClick={() =>
+            window.locomotiveScroll.scrollTo(
+              document.getElementById("#contact")
+            )
+          }
+        >
+          Contact
+        </Contact>
+      )}
     </>
   )
 }
