@@ -35,7 +35,7 @@ const Container = styled.div`
 const Panel1 = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${props => props.theme.colors.isabelline};
+  background-color: ${props => props.theme.colors.body};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@ const Panel1 = styled.div`
 const Panel2 = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${props => props.theme.colors.black};
+  background-color: ${props => props.theme.colors.text};
 `
 
 const Intro = styled.span`

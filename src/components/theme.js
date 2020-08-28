@@ -1,18 +1,27 @@
-import React from "react"
+import React, { useEffect, useContext } from "react"
 import { ThemeProvider } from "styled-components"
+import Context from "../components/context"
 
-const theme = {
+const light = {
+  colors: {
+    body: "#F6F5F1",
+    text: "#1A1A21",
+  },
+}
+
+const dark = {
+  colors: {
+    body: "#1A1A21",
+    text: "#F6F5F1",
+  },
+}
+
+const defaultTheme = {
   breakpoints: {
     sm: 575.98,
     md: 767.98,
     lg: 991.98,
     xl: 1199.98,
-  },
-
-  colors: {
-    isabelline: "#F6F5F1",
-    white: "#FFFFFF",
-    black: "#1A1A21",
   },
 
   transitions: {
@@ -34,8 +43,16 @@ const theme = {
   },
 }
 
-const Theme = ({ children }) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
-)
+export const lightTheme = { ...defaultTheme, ...light }
+export const darkTheme = { ...defaultTheme, ...dark }
+
+const Theme = ({ children }) => {
+  const { theme } = useContext(Context)
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      {children}
+    </ThemeProvider>
+  )
+}
 
 export default Theme

@@ -80,8 +80,8 @@ export default createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${props => props.theme.colors.black};
-    color: ${props => props.theme.colors.black};
+    background-color: ${props => props.theme.colors.text};
+    color: ${props => props.theme.colors.text};
     user-select: none;
   }
 
@@ -118,7 +118,7 @@ export default createGlobalStyle`
   }
 
   a {
-    color: ${props => props.theme.colors.black};
+    color: ${props => props.theme.colors.text};
   }
 
   .transition-stagger {

@@ -13,7 +13,7 @@ import ChangeBrowser from "../components/changeBrowser"
 
 const Container = styled.div`
   padding: ${props => props.theme.paddings.content};
-  background-color: ${props => props.theme.colors.isabelline};
+  background-color: ${props => props.theme.colors.body};
   width: 100%;
   box-sizing: border-box;
 `
