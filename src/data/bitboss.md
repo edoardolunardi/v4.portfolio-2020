@@ -1,10 +1,10 @@
 ---
-slug: "/project/emerge"
-sort: 2
+slug: "/project/bitboss"
+sort: 3
 seo:
-  title: "Emerge"
-title: "Emerge"
-cover: "../images/emerge.jpg"
+  title: "Bitboss"
+title: "Bitboss"
+cover: "../images/bitboss.jpg"
 description:
   - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
   - "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"

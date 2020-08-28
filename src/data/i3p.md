@@ -1,10 +1,10 @@
 ---
-slug: "/project/emerge"
-sort: 2
+slug: "/project/i3p"
+sort: 4
 seo:
-  title: "Emerge"
-title: "Emerge"
-cover: "../images/emerge.jpg"
+  title: "i3p"
+title: "i3p"
+cover: "../images/i3p.jpg"
 description:
   - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
   - "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"

@@ -1,5 +1,6 @@
 ---
 slug: "/project/diego-ravier"
+sort: 1
 seo:
   title: "Diego Ravier"
 title: "Diego"

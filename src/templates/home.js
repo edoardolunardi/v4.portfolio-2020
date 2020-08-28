@@ -188,6 +188,7 @@ export const pageQuery = graphql`
     }
     projects: allMarkdownRemark(
       filter: { frontmatter: { slug: { ne: $slug } } }
+      sort: { fields: frontmatter___sort, order: ASC }
     ) {
       edges {
         node {
