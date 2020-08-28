@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
-import useBreakpoint from "../hooks/useBreakpoint"
+import { isMobile } from "react-device-detect"
 import useBrowserDetect from "../hooks/useBrowserDetect"
 import Context from "../components/context"
 import Header from "../components/header"
@@ -34,7 +34,6 @@ const variants = {
 }
 
 const Layout = ({ children, location }) => {
-  const isMobile = useBreakpoint("md")
   const { isValidBrowser } = useBrowserDetect()
   const { showLoader } = useContext(Context)
   const scrollContentRef = useRef(null)

@@ -15,6 +15,8 @@ const TopLeft = styled.div`
   padding-top: ${props => props.theme.paddings.content};
   padding-left: ${props => props.theme.paddings.content};
   text-transform: lowercase;
+  display: flex;
+  align-items: center;
 
   ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
