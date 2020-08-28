@@ -76,11 +76,9 @@ const HomePage = ({ data }) => {
   const { page, projects } = data
   const { content } = page
 
-  const { seo, title, subtitle } = content
+  const { seo, title, subtitle, about, linkedin, email, copy } = content
   const { showLoader } = useContext(Context)
   const isMobile = useMediaQuery("md")
-
-  console.log(projects)
 
   return (
     <>
@@ -122,15 +120,7 @@ const HomePage = ({ data }) => {
             </Col2>
             <Col8>
               <Paragraph noMarginBottom>
-                <Spanify
-                  lines={[
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
-                    "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut",
-                    "enim ad minim veniam, quis nostrud exercitation",
-                    " ",
-                    "Currently at WILD",
-                  ]}
-                />
+                <Spanify lines={about} />
               </Paragraph>
             </Col8>
           </Row>
@@ -145,15 +135,12 @@ const HomePage = ({ data }) => {
             </Col2>
             <Col8>
               <Paragraph noMarginBottom>
-                <Anchor
-                  href="https://www.linkedin.com/in/edoardolunardi/"
-                  target="_blank"
-                >
+                <Anchor href={linkedin} target="_blank">
                   <Span>Linkedin</Span>
                 </Anchor>
               </Paragraph>
               <Paragraph noMarginBottom>
-                <Anchor href="mailto:edward.lunardi@gmail.com">
+                <Anchor href={`mailto:${email}`}>
                   <Span>Email</Span>
                 </Anchor>
               </Paragraph>
@@ -165,7 +152,7 @@ const HomePage = ({ data }) => {
           data-scroll-offset="-10%"
           className="transition-stagger"
         >
-          <Copy>All images are copyright to their respective owners</Copy>
+          <Copy>{copy}</Copy>
         </CopyBlock>
       </ContentReveal>
     </>
@@ -184,6 +171,10 @@ export const pageQuery = graphql`
         }
         title
         subtitle
+        about
+        linkedin
+        email
+        copy
       }
     }
     projects: allMarkdownRemark(
