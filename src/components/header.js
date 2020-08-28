@@ -99,9 +99,9 @@ const Header = ({ inProject }) => {
             )
           }
         >
-          <StyledBack role="button" tabIndex="0">
+          <StyledSpan role="button" tabIndex="0">
             Contact
-          </StyledBack>
+          </StyledSpan>
         </TopRight>
       )}
     </>
