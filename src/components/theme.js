@@ -48,8 +48,9 @@ export const darkTheme = { ...defaultTheme, ...dark }
 
 const Theme = ({ children }) => {
   const { theme } = useContext(Context)
+
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       {children}
     </ThemeProvider>
   )

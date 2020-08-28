@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { ThemeContext } from "styled-components"
 
-const useMediaQuery = bp => {
+const useBreakpoint = bp => {
   const theme = useContext(ThemeContext)
   const [matches, setMatches] = useState(false) // False during SSR
   const query = `(max-width: ${theme.breakpoints[bp]}px)`
@@ -19,4 +19,4 @@ const useMediaQuery = bp => {
   return matches
 }
 
-export default useMediaQuery
+export default useBreakpoint
