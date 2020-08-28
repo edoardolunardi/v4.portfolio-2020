@@ -80,7 +80,7 @@ export default createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${props => props.theme.colors.text};
+    background-color: ${props => props.theme.colors.body};
     color: ${props => props.theme.colors.text};
     user-select: none;
     transition: background-color 1s ${props =>
