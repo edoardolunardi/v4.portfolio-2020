@@ -83,7 +83,7 @@ const HomePage = ({ data }) => {
 
   return (
     <>
-      <SEO title={seo.title} ogImage={seo.ogImage} />
+      <SEO title={seo.title} ogImage={seo.image.publicURL} />
       <TitleBlock>
         <StaggerReveal animate={!showLoader}>
           <Title>
