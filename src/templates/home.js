@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
 import Context from "../components/context"
