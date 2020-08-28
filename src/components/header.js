@@ -1,11 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
 import PropTypes from "prop-types"
+import Context from "../components/context"
 import { Link } from "gatsby"
+import { Span } from "./ui"
 import BackSVG from "../icons/back.svg"
 
-const About = styled.div`
+const TopLeft = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -13,7 +15,6 @@ const About = styled.div`
   padding-top: ${props => props.theme.paddings.content};
   padding-left: ${props => props.theme.paddings.content};
   text-transform: lowercase;
-  cursor: pointer;
 
   ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
@@ -34,11 +35,10 @@ const StyledBack = styled(Link)`
   }
 `
 
-const Contact = styled.h2`
+const TopRight = styled.h2`
   position: absolute;
   top: 0;
   right: 0;
-  cursor: pointer;
   font-size: ${props => props.theme.fontSizes.xs};
   padding-top: ${props => props.theme.paddings.content};
   padding-right: ${props => props.theme.paddings.content};
@@ -49,34 +49,60 @@ const Contact = styled.h2`
   }
 `
 
+const Switcher = styled(Span)`
+  margin-left: 2vw;
+  cursor: pointer;
+`
+
+const StyledSpan = styled(Span)`
+  cursor: pointer;
+`
+
 const Header = ({ inProject }) => {
+  const { theme, setTheme } = useContext(Context)
   return (
     <>
-      <About
-        {...(!inProject && {
-          onClick: () =>
-            window.locomotiveScroll.scrollTo(document.getElementById("#about")),
-        })}
-      >
+      <TopLeft>
         {inProject ? (
           <StyledBack to="/">
             <BackSVG />
             back
           </StyledBack>
         ) : (
-          "about"
+          <StyledSpan
+            role="button"
+            tabIndex="0"
+            onClick={() =>
+              window.locomotiveScroll.scrollTo(
+                document.getElementById("#about")
+              )
+            }
+          >
+            About
+          </StyledSpan>
         )}
-      </About>
+        <Switcher
+          role="button"
+          tabIndex="0"
+          onClick={() =>
+            setTheme(prev => (prev === "light" ? "dark" : "light"))
+          }
+        >
+          {theme === "light" ? "dark" : "light"}
+        </Switcher>
+      </TopLeft>
       {!inProject && (
-        <Contact
+        <TopRight
           onClick={() =>
             window.locomotiveScroll.scrollTo(
               document.getElementById("#contact")
             )
           }
         >
-          Contact
-        </Contact>
+          <StyledBack role="button" tabIndex="0">
+            Contact
+          </StyledBack>
+        </TopRight>
       )}
     </>
   )

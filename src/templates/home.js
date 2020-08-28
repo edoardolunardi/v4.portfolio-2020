@@ -78,13 +78,13 @@ const HomePage = ({ data }) => {
   const { content } = page
 
   const { seo, title, subtitle, about, linkedin, email, copy } = content
-  const { showLoader, setTheme } = useContext(Context)
+  const { showLoader } = useContext(Context)
   const isMobile = useMediaQuery("md")
 
   return (
     <>
       <SEO title={seo.title} ogImage={seo.image.publicURL} />
-      <TitleBlock onClick={() => setTheme("dark")}>
+      <TitleBlock>
         <StaggerReveal animate={!showLoader}>
           <Title>
             <Spanify text={title} hasAnimation />
