@@ -20,7 +20,7 @@ const Pointer = styled.div`
   width: 40px;
   height: 40px;
   background-color: ${props => props.theme.colors.text};
-  transition: background-color 1s ease;
+  transition: background-color 1s ${props => props.theme.transitions.bezier};
   opacity: 0.5;
   border-radius: 50%;
   mix-blend-mode: multiply;

@@ -14,6 +14,7 @@ import ChangeBrowser from "../components/changeBrowser"
 const Container = styled.div`
   padding: ${props => props.theme.paddings.content};
   background-color: ${props => props.theme.colors.body};
+  transition: background-color 1s ${props => props.theme.transitions.bezier};
   width: 100%;
   box-sizing: border-box;
 `
