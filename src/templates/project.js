@@ -51,6 +51,7 @@ const TitleBlock = styled.div`
   text-align: right;
   padding-bottom: 10vw;
   padding-top: 4vw;
+  text-transform: lowercase;
 
   ${down("md")} {
     padding-bottom: 15vw;
@@ -122,7 +123,9 @@ const Project = ({ data }) => {
             </Col2>
             <Col8>
               <Paragraph noMarginBottom>
-                <Span>{agency.name}</Span>
+                <Anchor href={agency.link} target="_blank">
+                  {agency.name}
+                </Anchor>
               </Paragraph>
               <Paragraph noMarginBottom>
                 <Website href={website} target="_blank">
