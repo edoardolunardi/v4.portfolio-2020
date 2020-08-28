@@ -49,7 +49,6 @@ const Panel2 = styled.div`
 
 const Intro = styled.span`
   font-size: ${props => props.theme.fontSizes.xl};
-  font-weight: bold;
   text-transform: lowercase;
 
   ${down("md")} {

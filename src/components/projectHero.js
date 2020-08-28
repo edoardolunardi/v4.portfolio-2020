@@ -5,7 +5,9 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 
 const Container = styled.div`
-  width: 100%;
+  width: calc(100% + 8vw);
+  margin-left: -4vw;
+  margin-right: -4vw;
   height: 50vw;
   position: relative;
   overflow: hidden;

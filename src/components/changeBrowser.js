@@ -12,16 +12,23 @@ const Container = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: ${props => props.theme.fontSizes.xl};
+  font-size: ${props => props.theme.fontSizes.lg};
+  text-transform: lowercase;
 `
+
+const AnchorsContainer = styled.div``
 
 const ChangeBrowser = () => (
   <Container>
     <Title>
       This website works best on
-      <Anchor href="https://www.google.com/intl/en_en/chrome/">Chrome</Anchor>/
-      <Anchor href="https://www.mozilla.org/en-US/firefox/new/">Firefox</Anchor>
-      .
+      <AnchorsContainer>
+        <Anchor href="https://www.google.com/intl/en_en/chrome/">Chrome</Anchor>
+        /
+        <Anchor href="https://www.mozilla.org/en-US/firefox/new/">
+          Firefox.
+        </Anchor>
+      </AnchorsContainer>
     </Title>
   </Container>
 )
