@@ -26,6 +26,7 @@ import OpenSvg from "../icons/open-arrow.svg"
 const VideoContainer = styled.div`
   padding: 5vw;
   background-color: ${props => rgba(props.theme.colors.text, 0.5)};
+  transition: color 1s ease;
   margin-bottom: 5vw;
 
   &:last-of-type {

@@ -83,6 +83,7 @@ export default createGlobalStyle`
     background-color: ${props => props.theme.colors.text};
     color: ${props => props.theme.colors.text};
     user-select: none;
+    transition: background-color 1s ease, color 1s ease;
   }
 
   #___gatsby:after {
@@ -119,6 +120,7 @@ export default createGlobalStyle`
 
   a {
     color: ${props => props.theme.colors.text};
+    transition: color 1s ease;
   }
 
   .transition-stagger {
