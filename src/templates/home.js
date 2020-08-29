@@ -14,7 +14,7 @@ import {
   Col8,
   Anchor,
 } from "../components/ui"
-import useBreakpoint from "../hooks/useBreakpoint"
+import useMedia from "../hooks/useMedia"
 import SEO from "../components/seo"
 import Spanify from "../components/spanify"
 import ProjectPreview from "../components/projectPreview"
@@ -79,7 +79,7 @@ const HomePage = ({ data }) => {
 
   const { seo, title, subtitle, about, linkedin, email, copy } = content
   const { showLoader } = useContext(Context)
-  const isMobile = useBreakpoint("md")
+  const isMobile = useMedia("md")
 
   return (
     <>

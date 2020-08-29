@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react"
-import usePrefersDark from "../hooks/usePrefersDark"
+import useMedia from "../hooks/useMedia"
 
 const defaultState = {
   showLoader: true,
@@ -13,7 +13,7 @@ const AppContext = createContext(defaultState)
 const AppProvider = ({ children }) => {
   const [showLoader, setShowLoader] = useState(true)
   const [theme, setTheme] = useState(null)
-  const prefersDark = usePrefersDark()
+  const prefersDark = useMedia()
 
   useEffect(() => {
     setTheme(prefersDark ? "dark" : "light")

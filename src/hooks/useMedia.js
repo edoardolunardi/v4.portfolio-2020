@@ -1,10 +1,17 @@
 import { useState, useEffect, useContext } from "react"
 import { ThemeContext } from "styled-components"
 
-const useBreakpoint = bp => {
+/* 
+    useMedia will be used to detect breakpoint it one is passed,
+    otherwise will be used to detect prefers-color-scheme
+*/
+
+const useMedia = bp => {
   const theme = useContext(ThemeContext)
   const [matches, setMatches] = useState(false) // False during SSR
-  const query = `(max-width: ${theme.breakpoints[bp]}px)`
+  const query = bp
+    ? `(max-width: ${theme.breakpoints[bp]}px)`
+    : "(prefers-color-scheme: dark)"
 
   useEffect(() => {
     setMatches(matchMedia(query).matches)
@@ -19,4 +26,4 @@ const useBreakpoint = bp => {
   return matches
 }
 
-export default useBreakpoint
+export default useMedia

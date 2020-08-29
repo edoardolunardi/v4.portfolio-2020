@@ -16,7 +16,7 @@ import {
   Anchor,
 } from "../components/ui"
 import LazyVideo from "../components/lazyVideo"
-import useBreakpoint from "../hooks/useBreakpoint"
+import useMedia from "../hooks/useMedia"
 
 import SEO from "../components/seo"
 import Spanify from "../components/spanify"
@@ -85,7 +85,7 @@ const Project = ({ data }) => {
   const { content } = markdownRemark
   const { seo, title, cover, description, agency, website, videos } = content
   const { showLoader } = useContext(Context)
-  const isMobile = useBreakpoint("md")
+  const isMobile = useMedia("md")
 
   return (
     <>
