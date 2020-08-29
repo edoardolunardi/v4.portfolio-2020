@@ -60,7 +60,9 @@ const Layout = ({ children, location }) => {
           />
           {!isTouch && <Cursor />}
           <Container ref={scrollContentRef}>
-            <Header inProject={location.pathname.includes("project")} />
+            {!location.pathname.includes("404") && (
+              <Header inProject={location.pathname.includes("project")} />
+            )}
             <Main>{children}</Main>
           </Container>
         </motion.div>

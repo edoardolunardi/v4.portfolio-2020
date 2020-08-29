@@ -2,5 +2,5 @@
 
 - check seo in general
 - add content to projects
-- 404 page
+- better 404 page (nobody will see this one tho lol)
 - analytics
