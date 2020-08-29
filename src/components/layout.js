@@ -2,8 +2,8 @@ import React, { useContext, useRef } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
-import { isMobile } from "react-device-detect"
 import useBrowserDetect from "../hooks/useBrowserDetect"
+import useTouchDetect from "../hooks/useTouchDetect"
 import Context from "../components/context"
 import Header from "../components/header"
 import Scroll from "../components/scroll"
@@ -37,6 +37,7 @@ const Layout = ({ children, location }) => {
   const { isValidBrowser } = useBrowserDetect()
   const { showLoader } = useContext(Context)
   const scrollContentRef = useRef(null)
+  const isTouch = useTouchDetect()
 
   return isValidBrowser ? (
     <>
@@ -54,10 +55,10 @@ const Layout = ({ children, location }) => {
           {/* Handles scroll animations */}
           <Scroll
             location={location}
-            isMobile={isMobile}
+            isTouchDevice={isTouch}
             container={scrollContentRef}
           />
-          {!isMobile && <Cursor />}
+          {!isTouch && <Cursor />}
           <Container ref={scrollContentRef}>
             <Header inProject={location.pathname.includes("project")} />
             <Main>{children}</Main>

@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import LocomotiveScroll from "locomotive-scroll"
 
-const Scroll = ({ location, isMobile, container }) => {
+const Scroll = ({ location, isTouchDevice, container }) => {
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll({
       el: container.current,
-      smooth: !isMobile,
+      smooth: !isTouchDevice,
       lerp: 0.07,
     })
 
@@ -33,7 +33,7 @@ const Scroll = ({ location, isMobile, container }) => {
         const { limit } = data
         const progress = y / limit
         const mobileProgress = y / mobileLimit
-        const scale = isMobile
+        const scale = isTouchDevice
           ? clamp(mobileProgress, 1, 2.5)
           : clamp(progress, 1, 2.5)
 
@@ -47,7 +47,7 @@ const Scroll = ({ location, isMobile, container }) => {
     return () => {
       if (locomotiveScroll) locomotiveScroll.destroy()
     }
-  }, [location, isMobile, container])
+  }, [location, isTouchDevice, container])
 
   return null
 }
