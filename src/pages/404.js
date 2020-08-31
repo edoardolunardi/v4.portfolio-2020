@@ -42,7 +42,7 @@ const NotFoundPage = () => (
         <Title>404</Title>
       </TitleBlock>
       <GifContainer>
-        <img src={gif}></img>
+        <img src={gif} alt="404" />
       </GifContainer>
     </Container>
   </>
