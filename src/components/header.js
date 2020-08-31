@@ -60,7 +60,7 @@ const StyledSpan = styled(Span)`
   cursor: pointer;
 `
 
-const Header = ({ inProject }) => {
+const Header = ({ inProject, in404 }) => {
   const { theme, setTheme } = useContext(Context)
   return (
     <>
@@ -70,6 +70,8 @@ const Header = ({ inProject }) => {
             <BackSVG />
             back
           </StyledBack>
+        ) : in404 ? (
+          <Link to="/">Back home</Link>
         ) : (
           <StyledSpan
             role="button"
@@ -93,7 +95,7 @@ const Header = ({ inProject }) => {
           {theme === "light" ? "dark" : "light"}
         </Switcher>
       </TopLeft>
-      {!inProject && (
+      {!inProject && !in404 && (
         <TopRight
           onClick={() =>
             window.locomotiveScroll.scrollTo(
@@ -112,6 +114,7 @@ const Header = ({ inProject }) => {
 
 Header.propTypes = {
   inProject: PropTypes.bool,
+  in404: PropTypes.bool,
 }
 
 export default Header

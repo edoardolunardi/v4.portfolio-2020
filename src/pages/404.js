@@ -1,30 +1,36 @@
 import React from "react"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
-import { Link } from "gatsby"
+import { Title } from "../components/ui"
+import gif from "../images/404.gif"
 import SEO from "../components/seo"
 
 const Container = styled.div`
   width: calc(100vw - 8vw);
   height: calc(100vh - 8vw);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 `
 
-const Title = styled.h1`
-  font-size: ${props => props.theme.fontSizes.lg};
-  margin-bottom: 2vw;
+const TitleBlock = styled.div`
+  font-weight: bold;
+  text-align: right;
+  padding-bottom: 4vw;
+  padding-top: 4vw;
+  text-transform: lowercase;
 
   ${down("md")} {
-    font-size: ${props => props.theme.fontSizes.xxl};
+    padding-bottom: 15vw;
   }
 `
 
-const StyledLink = styled(Link)`
-  ${down("md")} {
-    font-size: ${props => props.theme.fontSizes.md};
+const GifContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${props => props.theme.colors.text};
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
 
@@ -32,8 +38,12 @@ const NotFoundPage = () => (
   <>
     <SEO title="404: Not found" />
     <Container>
-      <Title>404</Title>
-      <StyledLink to="/">back home</StyledLink>
+      <TitleBlock>
+        <Title>404</Title>
+      </TitleBlock>
+      <GifContainer>
+        <img src={gif}></img>
+      </GifContainer>
     </Container>
   </>
 )
