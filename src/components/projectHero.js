@@ -12,7 +12,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
-  ${down("md")} {
+  ${down("sm")} {
     height: 50vh;
   }
 `

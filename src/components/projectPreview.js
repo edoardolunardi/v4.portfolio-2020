@@ -35,6 +35,11 @@ const StyledLink = styled(Link)`
   }
 
   ${down("md")} {
+    height: 60vw;
+    max-width: 100%;
+  }
+
+  ${down("sm")} {
     height: 50vh;
     max-width: 100%;
   }
