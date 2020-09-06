@@ -71,13 +71,23 @@ const InfoSpan = styled.div`
 
   ${down("md")} {
     font-size: ${props => props.theme.fontSizes.md};
-    margin-bottom: 4vw;
   }
 `
 
 const Website = styled(Anchor)`
   display: flex;
   align-items: center;
+
+  ${Span} {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-left: 5px;
+      width: 3.5vw;
+      height: 3.5vw;
+    }
+  }
 `
 
 const Project = ({ data }) => {
@@ -184,7 +194,7 @@ export const pageQuery = graphql`
           link
         }
         website
-        videos
+        # videos
       }
     }
   }
