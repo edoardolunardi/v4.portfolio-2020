@@ -30,8 +30,9 @@ const defaultTheme = {
   },
 
   fontSizes: {
-    xs: "1.6vw",
-    sm: "2.7vw",
+    min: "1.6vw",
+    xs: "2.7vw",
+    sm: "3.5vw",
     md: "5vw",
     lg: "7vw",
     xl: "10.5vw",

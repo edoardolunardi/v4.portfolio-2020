@@ -66,10 +66,15 @@ const InfoBlock = styled.div`
 `
 
 const InfoSpan = styled.div`
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: ${props => props.theme.fontSizes.min};
   text-transform: lowercase;
 
   ${down("md")} {
+    font-size: ${props => props.theme.fontSizes.sm};
+    margin-bottom: 4vw;
+  }
+
+  ${down("sm")} {
     font-size: ${props => props.theme.fontSizes.md};
   }
 `

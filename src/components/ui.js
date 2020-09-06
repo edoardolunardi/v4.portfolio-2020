@@ -79,12 +79,16 @@ export const Title = styled.h1`
 `
 
 export const Paragraph = styled.p`
-  font-size: ${props => props.theme.fontSizes.sm};
+  font-size: ${props => props.theme.fontSizes.xs};
   font-weight: bold;
   line-height: 1;
   margin-bottom: ${props => (props.noMarginBottom ? "0" : "2.5vw")};
 
   ${down("md")} {
+    font-size: ${props => props.theme.fontSizes.md};
+  }
+
+  ${down("sm")} {
     font-size: ${props => props.theme.fontSizes.lg};
   }
 `

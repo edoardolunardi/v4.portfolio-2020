@@ -11,7 +11,7 @@ const TopLeft = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: ${props => props.theme.fontSizes.min};
   padding-top: ${props => props.theme.paddings.content};
   padding-left: ${props => props.theme.paddings.content};
   text-transform: lowercase;
@@ -19,6 +19,10 @@ const TopLeft = styled.div`
   align-items: center;
 
   ${down("md")} {
+    font-size: ${props => props.theme.fontSizes.sm};
+  }
+
+  ${down("sm")} {
     font-size: ${props => props.theme.fontSizes.md};
   }
 `
@@ -41,12 +45,16 @@ const TopRight = styled.h2`
   position: absolute;
   top: 0;
   right: 0;
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: ${props => props.theme.fontSizes.min};
   padding-top: ${props => props.theme.paddings.content};
   padding-right: ${props => props.theme.paddings.content};
   text-transform: lowercase;
 
   ${down("md")} {
+    font-size: ${props => props.theme.fontSizes.sm};
+  }
+
+  ${down("sm")} {
     font-size: ${props => props.theme.fontSizes.md};
   }
 `

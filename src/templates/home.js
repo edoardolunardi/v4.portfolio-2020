@@ -46,12 +46,16 @@ const AboutBlock = styled.div`
 `
 
 const AboutSpan = styled.div`
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: ${props => props.theme.fontSizes.min};
   text-transform: lowercase;
 
   ${down("md")} {
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.fontSizes.sm};
     margin-bottom: 4vw;
+  }
+
+  ${down("sm")} {
+    font-size: ${props => props.theme.fontSizes.md};
   }
 `
 
@@ -62,14 +66,18 @@ const CopyBlock = styled.div`
 `
 
 const Copy = styled(Span)`
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: ${props => props.theme.fontSizes.min};
   display: block;
   text-transform: lowercase;
 
   ${down("md")} {
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.fontSizes.sm};
     text-align: right;
     max-width: 70vw;
+  }
+
+  ${down("sm")} {
+    font-size: ${props => props.theme.fontSizes.md};
   }
 `
 
