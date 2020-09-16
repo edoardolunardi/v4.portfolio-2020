@@ -8,9 +8,11 @@ seo:
 title: "Diego"
 cover: "../images/diego.jpg"
 description:
-  - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
-  - "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
-  - "enim ad minim veniam, quis nostrud exercitation"
+  - "Diego Ravier is a freelance photojournalist, multimedia story teller"
+  - "and educator who is dedicated to documenting stories"
+  - "of social significance."
+  - " "
+  - "JAMStack - Prismic - Gatsby - React"
 agency:
   name: "Tomorrow"
   link: "https://hellotomorrow.agency/"

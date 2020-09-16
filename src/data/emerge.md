@@ -8,9 +8,10 @@ seo:
 title: "Emerge"
 cover: "../images/emerge.jpg"
 description:
-  - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
-  - "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
-  - "enim ad minim veniam, quis nostrud exercitation"
+  - "Emerge was born out of a desire to leverage frontier technologies"
+  - "to enable meaningful shared experiences."
+  - " "
+  - "JAMStack - CraftCMS - Next.js - React"
 agency:
   name: "WILD"
   link: "https://wild.as/"
